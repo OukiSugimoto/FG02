@@ -1,5 +1,8 @@
 #include "EnemyChat.h"
 
+EnemyChat::EnemyChat() {}
+EnemyChat::~EnemyChat(){}
+
 void EnemyChat::Initialize() {
 	enemyPosX = 20;
 	enemyPosY = 90;
