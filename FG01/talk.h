@@ -15,10 +15,11 @@ private:
 	int posY;
 
 	int talkGraph = LoadGraph("Resource\\talk.png");
+
+	int TalkScrollY = 0;
 	//スクロール用変数
 	int posY2;
-	int scrollY;
-
+	
 	int talk2Graph = talkGraph;
 	//タイマー
 	int time;

@@ -4,40 +4,41 @@ Talk::Talk() {}
 Talk::~Talk(){}
 
 void Talk::Initialize() {
-	posX = 20;
+	posX = 0;
 	posY = 0;
 
-	posY2 = 650;
-	scrollY = 0;
+	posY2 = 850;
+	TalkScrollY = 0;
 
 	timer = 120;
 }
 
 void Talk::Update(char *key) {
 	if (key[KEY_INPUT_UP]) {
-		scrollY -= 10;
+		TalkScrollY -= 10;
 	}
 	if (key[KEY_INPUT_DOWN]) {
-		scrollY += 10;
+		TalkScrollY += 10;
 	}
 	
-	if (scrollY >= 650) {
-		scrollY = 0;
+	if (TalkScrollY >= 850) {
+		TalkScrollY = 0;
 		posY = 0;
-		posY2 = 650;
+		posY2 = 850;
 	}
-	if (scrollY <= 0) {
-		scrollY = 0;
+
+	if (TalkScrollY <= 0) {
+		TalkScrollY = 0;
 		posY = 0;
-		posY2 = 650;
+		posY2 = 850;
 	}
 	
 }
 
 void Talk::Draw() {
-	DrawGraph(posX, posY - scrollY, talkGraph, TRUE);
-	DrawGraph(posX, posY2 - scrollY, talk2Graph, TRUE);
+	DrawGraph(posX, posY - TalkScrollY, talkGraph, TRUE);
+	DrawGraph(posX, posY2 - TalkScrollY, talk2Graph, TRUE);
 
-	DrawFormatString(200, 200, GetColor(128, 128, 128), "scroll=%d", scrollY);
+	DrawFormatString(200, 200, GetColor(128, 128, 128), "scroll=%d", TalkScrollY);
 	
 }

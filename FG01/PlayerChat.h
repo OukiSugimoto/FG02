@@ -1,11 +1,11 @@
 #pragma once
 #include"DxLib.h"
 
-class Chat
+class PlayerChat
 {
 public:
-	Chat() {}
-	~Chat(){}
+	PlayerChat() {}
+	~PlayerChat(){}
 
 	void Initialize();
 	void Update(char *Key);
@@ -20,12 +20,13 @@ private:
 	//‰¼
 	int chattime;
 
-	int chatReceponFlag;
-	int chatSendFlag;
-
 	int chatReceponCount = 0;
 	int chatSendCount = 0;
 
-	int chatReceponGraph = LoadGraph("Resource\\EnemyText.png");
+	int chatReceponFlag[100];
+	int chatSendFlag[100];
+
+	int ChatScrollY = 0;
+
 	int chatSendGraph = LoadGraph("Resource\\PlayerText.png");
 };

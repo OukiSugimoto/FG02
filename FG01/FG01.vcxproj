@@ -152,13 +152,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="chat.cpp" />
+    <ClCompile Include="EnemyChat.cpp" />
+    <ClCompile Include="PlayerChat.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="talk.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="chat.h" />
+    <ClInclude Include="EnemyChat.h" />
+    <ClInclude Include="PlayerChat.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="talk.h" />
   </ItemGroup>
