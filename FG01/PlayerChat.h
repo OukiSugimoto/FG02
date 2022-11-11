@@ -22,6 +22,8 @@ private:
 
 	int chatAnser = 0;
 	int chatchose = 0;
+
+	int sceneState = 0;
 	//‰¼
 	int chattime;
 

@@ -22,7 +22,6 @@ void EnemyChat::Initialize() {
 
 	ChatScrollY = 0;
 
-
 }
 
 void EnemyChat::Update(char* keys, char* oldkeys) {
@@ -49,7 +48,7 @@ void EnemyChat::Draw() {
 			DrawFormatString(68, 650, GetColor(0, 0, 0), "‚¨‚Í‚æ");
 			DrawFormatString(350, 650, GetColor(0, 0, 0), "‚¢‚½‚¢");
 			DrawFormatString(68, 750, GetColor(0, 0, 0), "‚â‚¾");
-			DrawFormatString(350, 750, GetColor(0, 0, 0), "‚²‚ß‚ñ");
+			DrawFormatString(350, 750, GetColor(0, 0, 0), "‚Î‚Â‚¾‚©‚ç");
 	    }
 		
 		if (chatReceponFlag[1] == TRUE) {

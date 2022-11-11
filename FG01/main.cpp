@@ -38,6 +38,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// 画像などのリソースデータの変数宣言と読み込み
 	int backGraph = LoadGraph("Resource\\back.png");
 	int textGraph = LoadGraph("Resource\\text.png");
+	int titleGraph = LoadGraph("Resource\\title.png");
 
 	// ゲームループで使う変数の宣言
 	Talk* talk_ = new Talk;
@@ -79,23 +80,26 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			timer -= 1;
 			time = 0;
 		}
-
 		talk_->Update(keys);
-		
+
 		playerchat_->Update(keys, oldkeys);
 
 		enemychat_->Update(keys, oldkeys);
 
+			
+		
 		// 描画処理
 		talk_->Draw();
-		
+
 		playerchat_->Draw();
 
 		enemychat_->Draw();
 
 		DrawGraph(0, 0, backGraph, TRUE);
 
-		DrawFormatString(200,200,GetColor(255,255,255),"%d",count);
+		DrawFormatString(200, 200, GetColor(255, 255, 255), "%d", count);
+
+		
 		//DrawFormatString(200, 0, GetColor(255, 255, 255), "timer=%d", timer);
 		//---------  ここまでにプログラムを記述  ---------//
 
