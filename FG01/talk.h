@@ -14,7 +14,9 @@ private:
 	int posX;
 	int posY;
 
-	int talkGraph = LoadGraph("Resource\\talk.png");
+	int talkGraph = LoadGraph("Resource\\talk.png");	
+
+	int chatSendGraph = LoadGraph("Resource\\PlayerText.png");
 
 	int TalkScrollY = 0;
 	//スクロール用変数

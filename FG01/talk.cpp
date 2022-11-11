@@ -39,6 +39,17 @@ void Talk::Draw() {
 	DrawGraph(posX, posY - TalkScrollY, talkGraph, TRUE);
 	DrawGraph(posX, posY2 - TalkScrollY, talk2Graph, TRUE);
 
-	DrawFormatString(200, 200, GetColor(128, 128, 128), "scroll=%d", TalkScrollY);
+	//選択画面
+	//チャット番号
+	DrawGraph(18, 600, chatSendGraph, TRUE);
+	DrawGraph(300, 600, chatSendGraph, TRUE);
+	DrawGraph(18, 700, chatSendGraph, TRUE);
+	DrawGraph(300, 700, chatSendGraph, TRUE);
+	//チャット選択
+	/*DrawGraph(18, 600, chatSendGraph, TRUE);
+	DrawGraph(300, 600, chatSendGraph, TRUE);
+	DrawGraph(18, 700, chatSendGraph, TRUE);
+	DrawGraph(300, 700, chatSendGraph, TRUE);*/
+	//DrawFormatString(200, 200, GetColor(128, 128, 128), "scroll=%d", TalkScrollY);
 	
 }

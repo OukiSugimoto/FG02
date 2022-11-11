@@ -4,7 +4,7 @@
 #include"EnemyChat.h"
 
 // ウィンドウのタイトルに表示する文字列
-const char TITLE[] = "スギモト_オウキ";
+const char TITLE[] = "07_connect mail";
 
 // ウィンドウ横幅
 const int WIN_WIDTH = 600;
@@ -32,6 +32,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	SetWindowSizeExtendRate(1.0);             // 画面サイズを設定(解像度との比率で設定)
 	SetBackgroundColor(0, 0, 0);     // 画面の背景色を設定する
 	SetDrawScreen(DX_SCREEN_BACK);            // (ダブルバッファ)描画先グラフィック領域は裏面を指定
+	SetFontSize(30);
 	if (DxLib_Init() == -1) { return -1; }    // DXlibの初期化
 
 	// 画像などのリソースデータの変数宣言と読み込み
@@ -53,6 +54,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	//タイマー
 	int time = 0;
 	int timer = 120;
+
+	int count = 0;
 
 	char keys[256] = { 0 };   // 最新のキーボード情報用
 	char oldkeys[256] = { 0 };// 1ループ(フレーム)前のキーボード情報
@@ -79,9 +82,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		talk_->Update(keys);
 		
-		playerchat_->Update(keys);
+		playerchat_->Update(keys, oldkeys);
 
-		enemychat_->Update(keys);
+		enemychat_->Update(keys, oldkeys);
+
 		// 描画処理
 		talk_->Draw();
 		
@@ -89,11 +93,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		enemychat_->Draw();
 
-		DrawGraph(50,600,textGraph,TRUE);
 		DrawGraph(0, 0, backGraph, TRUE);
 
-		
-		DrawFormatString(200, 0, GetColor(255, 255, 255), "timer=%d", timer);
+		DrawFormatString(200,200,GetColor(255,255,255),"%d",count);
+		//DrawFormatString(200, 0, GetColor(255, 255, 255), "timer=%d", timer);
 		//---------  ここまでにプログラムを記述  ---------//
 
 		ScreenFlip();// (ダブルバッファ)裏面
