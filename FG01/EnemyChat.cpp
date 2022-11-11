@@ -18,7 +18,11 @@ void EnemyChat::Initialize() {
 
 	chatReceponCount = 0;
 
+	chatReceponFlag[0] = TRUE;
+
 	ChatScrollY = 0;
+
+
 }
 
 void EnemyChat::Update(char* keys, char* oldkeys) {
@@ -34,25 +38,29 @@ void EnemyChat::Update(char* keys, char* oldkeys) {
 	if (ChatScrollY >= 0) {
 		ChatScrollY = 0;
 	}
-
-	if (keys[KEY_INPUT_1] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
-		chatReceponFlag1 = TRUE;
-	}
 	
 }
 
 void EnemyChat::Draw() {
-		DrawGraph(enemyPosX[0], enemyPosY[0] + ChatScrollY, chatReceponGraph, TRUE);
+	    if (chatReceponFlag[0] == TRUE) {
+			DrawGraph(enemyPosX[0], enemyPosY[0] + ChatScrollY, chatReceponGraph, TRUE);
+			DrawFormatString(enemyPosX[0] + 50, enemyPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "‚¨‚Í‚æ");
 
-		if (chatReceponFlag1 == TRUE) {
+			DrawFormatString(68, 650, GetColor(0, 0, 0), "‚¨‚Í‚æ");
+			DrawFormatString(350, 650, GetColor(0, 0, 0), "‚¢‚½‚¢");
+			DrawFormatString(68, 750, GetColor(0, 0, 0), "‚â‚¾");
+			DrawFormatString(350, 750, GetColor(0, 0, 0), "‚²‚ß‚ñ");
+	    }
+		
+		if (chatReceponFlag[1] == TRUE) {
 			DrawGraph(enemyPosX[1], enemyPosY[1] + ChatScrollY, chatReceponGraph, TRUE);
 		}
 		
-		if (chatReceponFlag2 == TRUE) {
+		if (chatReceponFlag[2] == TRUE) {
 			DrawGraph(enemyPosX[2], enemyPosY[2] + ChatScrollY, chatReceponGraph, TRUE);
 		}
 
-		if (chatReceponFlag3 == TRUE) {
+		if (chatReceponFlag[3] == TRUE) {
 			DrawGraph(enemyPosX[3], enemyPosY[3] + ChatScrollY, chatReceponGraph, TRUE);
 		}
 

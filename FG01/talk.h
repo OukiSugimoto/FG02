@@ -1,6 +1,8 @@
 #pragma once
 #include"DxLib.h"
-class Talk
+#include"EnemyChat.h"
+
+class Talk : public EnemyChat
 {
 public:
 	Talk();

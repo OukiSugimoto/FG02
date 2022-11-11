@@ -45,6 +45,10 @@ void Talk::Draw() {
 	DrawGraph(300, 600, chatSendGraph, TRUE);
 	DrawGraph(18, 700, chatSendGraph, TRUE);
 	DrawGraph(300, 700, chatSendGraph, TRUE);
+
+	
+	
+
 	//チャット選択
 	/*DrawGraph(18, 600, chatSendGraph, TRUE);
 	DrawGraph(300, 600, chatSendGraph, TRUE);

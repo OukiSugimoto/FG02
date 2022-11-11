@@ -32,7 +32,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	SetWindowSizeExtendRate(1.0);             // 画面サイズを設定(解像度との比率で設定)
 	SetBackgroundColor(0, 0, 0);     // 画面の背景色を設定する
 	SetDrawScreen(DX_SCREEN_BACK);            // (ダブルバッファ)描画先グラフィック領域は裏面を指定
-	SetFontSize(30);
+	SetFontSize(20);
 	if (DxLib_Init() == -1) { return -1; }    // DXlibの初期化
 
 	// 画像などのリソースデータの変数宣言と読み込み
