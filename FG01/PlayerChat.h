@@ -11,7 +11,7 @@ public:
 	void Update(char *keys, char* oldkeys);
 	void Draw();
 	
-	
+	int chatSendFlag[20];
 
 private:
 	char keys[256] = { 0 };   // 最新のキーボード情報用
@@ -29,7 +29,7 @@ private:
 
 	int chatSendCount = 0;
 
-	int chatSendFlag[20];
+	
 
 	int ChatScrollY = 0;
 

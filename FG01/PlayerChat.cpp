@@ -81,7 +81,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 void PlayerChat::Draw(){
 		if (chatSendFlag[0] == TRUE) {
 			DrawGraph(playerPosX[0], playerPosY[0] + ChatScrollY, chatSendGraph, TRUE);
-			DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "‚â‚¾");
+			DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "‚¨‚Í‚æ‚¤");
 		}
 
 		if (chatSendFlag[1] == TRUE) {

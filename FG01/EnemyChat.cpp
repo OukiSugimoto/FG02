@@ -38,18 +38,22 @@ void EnemyChat::Update(char* keys, char* oldkeys) {
 		ChatScrollY = 0;
 	}
 	
+	if (chatSendFlag[0] == TRUE) {
+		chatReceponFlag[1] = TRUE;
+	}
 }
 
 void EnemyChat::Draw() {
 	    if (chatReceponFlag[0] == TRUE) {
 			DrawGraph(enemyPosX[0], enemyPosY[0] + ChatScrollY, chatReceponGraph, TRUE);
-			DrawFormatString(enemyPosX[0] + 50, enemyPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "‚¨‚Í‚æ");
+			DrawFormatString(enemyPosX[0] + 50, enemyPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "‚¨‚Í‚æ‚¤");
 
 			DrawFormatString(68, 650, GetColor(0, 0, 0), "‚¨‚Í‚æ");
 			DrawFormatString(350, 650, GetColor(0, 0, 0), "‚¢‚½‚¢");
 			DrawFormatString(68, 750, GetColor(0, 0, 0), "‚â‚¾");
 			DrawFormatString(350, 750, GetColor(0, 0, 0), "‚Î‚Â‚¾‚©‚ç");
 	    }
+		
 		
 		if (chatReceponFlag[1] == TRUE) {
 			DrawGraph(enemyPosX[1], enemyPosY[1] + ChatScrollY, chatReceponGraph, TRUE);
