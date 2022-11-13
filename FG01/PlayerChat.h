@@ -10,9 +10,10 @@ public:
 	void Initialize();
 	void Update(char *keys, char* oldkeys);
 	void Draw();
-	
+
 	int chatSendFlag[20];
 
+	int chatFalse = 0;
 private:
 	char keys[256] = { 0 };   // 最新のキーボード情報用
 	char oldkeys[256] = { 0 };// 1ループ(フレーム)前のキーボード情報
@@ -29,9 +30,9 @@ private:
 
 	int chatSendCount = 0;
 
-	
-
 	int ChatScrollY = 0;
 
 	int chatSendGraph = LoadGraph("Resource\\playerText.png");
+
+	int chatSelectGraph = LoadGraph("Resource\\text_small.png");
 };

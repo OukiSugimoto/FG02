@@ -19,7 +19,9 @@ enum GAMESCENE
 	Level3,
 	Level4,
 	Level5,
-	End
+	End,
+	Clear,
+	Ruru
 };
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
@@ -39,18 +41,16 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	int backGraph = LoadGraph("Resource\\back.png");
 	int textGraph = LoadGraph("Resource\\text.png");
 	int titleGraph = LoadGraph("Resource\\title.png");
+	int endGraph = LoadGraph("Resource\\end.png");
+	int clearGraph = LoadGraph("Resource\\clear.png");
+	int ruruGraph = LoadGraph("Resource\\ru-ru.png");
 
 	// ゲームループで使う変数の宣言
-	Talk* talk_ = new Talk;
-	talk_->Initialize();
-
-	PlayerChat* playerchat_ = new PlayerChat;
-	playerchat_->Initialize();
-
-	EnemyChat* enemychat_ = new EnemyChat;
-	enemychat_->Initialize();
-
 	int sceneState = 0;
+
+	Talk* talk_ = new Talk;
+	PlayerChat* playerchat_ = new PlayerChat;
+	EnemyChat* enemychat_ = new EnemyChat;
 
 	//タイマー
 	int time = 0;
@@ -75,31 +75,77 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		//---------  ここからプログラムを記述  ----------//
 
 		// 更新処理
+		
 		time++;
 		if (time >= 60) {
 			timer -= 1;
 			time = 0;
 		}
-		talk_->Update(keys);
 
-		playerchat_->Update(keys, oldkeys);
+		switch (sceneState)
+		{
+		case Title:
+			talk_->Initialize();
 
-		enemychat_->Update(keys, oldkeys);
+			playerchat_->Initialize();
 
-			
-		
+			enemychat_->Initialize();
+
+			DrawGraph(0,0,titleGraph,TRUE);
+			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
+				sceneState = Ruru;
+			}
+			break;
+		case Level1:
+			talk_->Update(keys);
+
+			playerchat_->Update(keys, oldkeys);
+
+			enemychat_->Update(keys, oldkeys);
+
+			if (playerchat_->chatFalse == 1) {
+				sceneState = End;
+			}
+
+			if (playerchat_->chatFalse == 2) {
+				sceneState = Clear;
+			}
+			break;
+		case End:
+			DrawGraph(0, 0, endGraph, TRUE);
+			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
+				sceneState = Title;
+			}
+			break;
+		case Clear:
+			DrawGraph(0, 0, clearGraph, TRUE);
+			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
+				sceneState = Title;
+			}
+			break;
+		case Ruru:
+			DrawGraph(0, 0, ruruGraph, TRUE);
+			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
+				sceneState = Level1;
+			}
+			break;
+		}
+
 		// 描画処理
-		talk_->Draw();
 
-		playerchat_->Draw();
+		if (sceneState == Level1) {
+			talk_->Draw();
 
-		enemychat_->Draw();
+			playerchat_->Draw();
 
-		DrawGraph(0, 0, backGraph, TRUE);
+			enemychat_->Draw();
 
-		DrawFormatString(200, 200, GetColor(255, 255, 255), "%d", count);
+			DrawGraph(0, 0, backGraph, TRUE);
 
+			DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:ともだち");
+		}
 		
+
 		//DrawFormatString(200, 0, GetColor(255, 255, 255), "timer=%d", timer);
 		//---------  ここまでにプログラムを記述  ---------//
 

@@ -46,7 +46,7 @@ void Talk::Draw() {
 	DrawGraph(18, 700, chatSendGraph, TRUE);
 	DrawGraph(300, 700, chatSendGraph, TRUE);
 
-	
+	DrawFormatString(300, 10, GetColor(255, 255, 255), "〇〇〇");
 	
 
 	//チャット選択

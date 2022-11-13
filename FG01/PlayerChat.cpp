@@ -28,57 +28,195 @@ void PlayerChat::Initialize() {
 
 	ChatScrollY = 0;
 
+	for (int i = 0; i < 10; i++) {
+		chatSendFlag[i] = FALSE;
+	}
+
+	chatchose = 0;
+
+	chatFalse = 0;
+
+	chatSendCount = 0;
 }
 
 void PlayerChat::Update(char* keys , char* oldkeys) {
 
-	if (keys[KEY_INPUT_DOWN]) {
+	/*if (keys[KEY_INPUT_DOWN]) {
 		ChatScrollY -= 5;
 	}
 
 	if (keys[KEY_INPUT_UP]) {
 		ChatScrollY += 5;
-	}
+	}*/
 
-	if (ChatScrollY >= 0) {
+	/*if (ChatScrollY >= 0) {
 		ChatScrollY = 0;
-	}
-
-	if (keys[KEY_INPUT_1] == FALSE && oldkeys[KEY_INPUT_1] == TRUE) {
-		chatchose = 1;
-	}
-
-	if (keys[KEY_INPUT_2] == FALSE && oldkeys[KEY_INPUT_2] == TRUE) {
-		chatchose = 2;
-	}
-
-	if (keys[KEY_INPUT_3] == FALSE && oldkeys[KEY_INPUT_3] == TRUE) {
-		chatchose = 3;
-	}
-
-	if (keys[KEY_INPUT_4] == FALSE && oldkeys[KEY_INPUT_4] == TRUE) {
-		chatchose = 4;
-	}
+	}*/
 
 	if (chatSendCount == 0) {
 		chatAnser = 1;
+
+		if (keys[KEY_INPUT_1] == FALSE && oldkeys[KEY_INPUT_1] == TRUE) {
+			chatchose = 1;
+		}
+
+		if (keys[KEY_INPUT_2] == FALSE && oldkeys[KEY_INPUT_2] == TRUE) {
+			chatchose = 2;
+		}
+
+		if (keys[KEY_INPUT_3] == FALSE && oldkeys[KEY_INPUT_3] == TRUE) {
+			chatchose = 3;
+		}
+
+		if (keys[KEY_INPUT_4] == FALSE && oldkeys[KEY_INPUT_4] == TRUE) {
+			chatchose = 4;
+		}
+
 		if (chatchose == chatAnser) {
 			chatSendFlag[0] = TRUE;
+			chatchose = 0;
 			chatSendCount += 1;
 		}
 	}
 
 	if (chatSendCount == 1) {
 		chatAnser = 3;
+		chatchose = 0;
+		
+		if (keys[KEY_INPUT_1] == FALSE && oldkeys[KEY_INPUT_1] == TRUE) {
+			chatchose = 1;
+			
+		}
+
+		if (keys[KEY_INPUT_2] == FALSE && oldkeys[KEY_INPUT_2] == TRUE) {
+			chatchose = 2;
+			
+		}
+
+		if (keys[KEY_INPUT_3] == FALSE && oldkeys[KEY_INPUT_3] == TRUE) {
+			chatchose = 3;
+		}
+
+		if (keys[KEY_INPUT_4] == FALSE && oldkeys[KEY_INPUT_4] == TRUE) {
+			chatchose = 4;
+			
+		}
+
 		if (chatchose == chatAnser) {
 			chatSendFlag[1] = TRUE;
+			chatchose = 0;
 			chatSendCount += 1;
 		}
 	}
 	
+	if (chatSendCount == 2) {
+		chatAnser = 2;
+		chatchose = 0;
+
+		if (keys[KEY_INPUT_1] == FALSE && oldkeys[KEY_INPUT_1] == TRUE) {
+			chatchose = 1;
+			
+		}
+
+		if (keys[KEY_INPUT_2] == FALSE && oldkeys[KEY_INPUT_2] == TRUE) {
+			chatchose = 2;
+		}
+
+		if (keys[KEY_INPUT_3] == FALSE && oldkeys[KEY_INPUT_3] == TRUE) {
+			chatchose = 3;
+			
+		}
+
+		if (keys[KEY_INPUT_4] == FALSE && oldkeys[KEY_INPUT_4] == TRUE) {
+			chatchose = 4;
+			
+		}
+
+		if (chatchose == chatAnser) {
+			chatSendFlag[2] = TRUE;
+			chatchose = 0;
+			chatSendCount += 1;
+		}
+	}
+
+	if (chatSendCount == 3) {
+		chatAnser = 3;
+		chatchose = 0;
+
+		if (keys[KEY_INPUT_1] == FALSE && oldkeys[KEY_INPUT_1] == TRUE) {
+			chatchose = 1;
+			
+		}
+
+		if (keys[KEY_INPUT_2] == FALSE && oldkeys[KEY_INPUT_2] == TRUE) {
+			chatchose = 2;
+			
+		}
+
+		if (keys[KEY_INPUT_3] == FALSE && oldkeys[KEY_INPUT_3] == TRUE) {
+			chatchose = 3;
+		}
+
+		if (keys[KEY_INPUT_4] == FALSE && oldkeys[KEY_INPUT_4] == TRUE) {
+			chatchose = 4;
+			
+		}
+
+		if (chatchose == chatAnser) {
+			chatSendFlag[3] = TRUE;
+			chatchose = 0;
+			chatSendCount += 1;
+
+			ChatScrollY -= 50;
+		}
+	}
+
+	if (chatSendCount == 4) {
+		chatAnser = 4;
+		chatchose = 0;
+
+		if (keys[KEY_INPUT_1] == FALSE && oldkeys[KEY_INPUT_1] == TRUE) {
+			chatchose = 1;
+			
+		}
+
+		if (keys[KEY_INPUT_2] == FALSE && oldkeys[KEY_INPUT_2] == TRUE) {
+			chatchose = 2;
+			
+		}
+
+		if (keys[KEY_INPUT_3] == FALSE && oldkeys[KEY_INPUT_3] == TRUE) {
+			chatchose = 3;
+			
+		}
+
+		if (keys[KEY_INPUT_4] == FALSE && oldkeys[KEY_INPUT_4] == TRUE) {
+			chatchose = 4;
+		}
+
+		if (chatchose == chatAnser) {
+			chatSendFlag[4] = TRUE;
+			chatchose = 0;
+			chatSendCount += 1;
+
+			ChatScrollY -= 50;
+
+			chatFalse = 2;
+		}
+	}
 }
 
 void PlayerChat::Draw(){
+	DrawGraph(60, 600,chatSelectGraph,TRUE);
+	DrawGraph(340, 600, chatSelectGraph, TRUE);
+	DrawGraph(60, 700, chatSelectGraph, TRUE);
+	DrawGraph(340, 700, chatSelectGraph, TRUE);
+
+	DrawFormatString(78, 610, GetColor(0, 0, 0), "1");
+	DrawFormatString(360, 610, GetColor(0, 0, 0), "2");
+	DrawFormatString(78, 710, GetColor(0, 0, 0), "3");
+	DrawFormatString(360, 710, GetColor(0, 0, 0), "4");
+
 		if (chatSendFlag[0] == TRUE) {
 			DrawGraph(playerPosX[0], playerPosY[0] + ChatScrollY, chatSendGraph, TRUE);
 			DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç®ÇÕÇÊÇ§");
@@ -86,18 +224,22 @@ void PlayerChat::Draw(){
 
 		if (chatSendFlag[1] == TRUE) {
 			DrawGraph(playerPosX[1], playerPosY[1] + ChatScrollY, chatSendGraph, TRUE);
+			DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇÕÇ‚Ç≠Ç±Ç¢!");
 		}
 
 		if (chatSendFlag[2] == TRUE) {
 			DrawGraph(playerPosX[2], playerPosY[2] + ChatScrollY, chatSendGraph, TRUE);
+			DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇæÇﬂ!");
 		}
 
 		if (chatSendFlag[3] == TRUE) {
 			DrawGraph(playerPosX[3], playerPosY[3] + ChatScrollY, chatSendGraph, TRUE);
+			DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç‹Çæä‘Ç…çáÇ§ÇÊ");
 		}
 
 		if (chatSendFlag[4] == TRUE) {
 			DrawGraph(playerPosX[4], playerPosY[4] + ChatScrollY, chatSendGraph, TRUE);
+			DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "ê‚ëŒÇæÇﬂ!");
 		}
 
 		if (chatSendFlag[5] == TRUE) {
@@ -123,7 +265,7 @@ void PlayerChat::Draw(){
 	/*DrawFormatString(100, 100, GetColor(255, 255, 255), "%d", chatSendCount);
 	DrawFormatString(100, 200, GetColor(255, 255, 255), "chattime=%d", chattime);*/
 
-	DrawFormatString(60, 85, GetColor(255, 255, 255), "Ç≥Ç©Ç‡Ç∆");
+	
 	/*if (chatSendCount == 10) {
 		DrawGraph(playerPosX[10], playerPosY[10] + ChatScrollY, chatSendGraph, TRUE);
 	}*/
