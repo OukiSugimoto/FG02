@@ -2,6 +2,8 @@
 #include"talk.h"
 #include"PlayerChat.h"
 #include"EnemyChat.h"
+#include"GameOver.h"
+#include"Level.h"
 
 // ウィンドウのタイトルに表示する文字列
 const char TITLE[] = "07_connect mail";
@@ -51,6 +53,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	Talk* talk_ = new Talk;
 	PlayerChat* playerchat_ = new PlayerChat;
 	EnemyChat* enemychat_ = new EnemyChat;
+	Level* level_ = new Level;
 
 	//タイマー
 	int time = 0;
@@ -75,12 +78,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		//---------  ここからプログラムを記述  ----------//
 
 		// 更新処理
-		
-		time++;
-		if (time >= 60) {
-			timer -= 1;
-			time = 0;
-		}
 
 		switch (sceneState)
 		{
@@ -91,14 +88,17 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 			enemychat_->Initialize();
 
+			level_->initialize();
+
 			DrawGraph(0,0,titleGraph,TRUE);
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
 				sceneState = Ruru;
+
 			}
 			break;
-		case Level1:
-			talk_->Update(keys);
 
+		case Level1:
+			
 			playerchat_->Update(keys, oldkeys);
 
 			enemychat_->Update(keys, oldkeys);
@@ -108,25 +108,35 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			}
 
 			if (playerchat_->chatFalse == 2) {
-				sceneState = Clear;
+				playerchat_->clearTimer--;
+				if (playerchat_->clearTimer == 0) {
+					sceneState = Clear;
+				}
 			}
 			break;
+
 		case End:
 			DrawGraph(0, 0, endGraph, TRUE);
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
 				sceneState = Title;
 			}
 			break;
+
 		case Clear:
 			DrawGraph(0, 0, clearGraph, TRUE);
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
 				sceneState = Title;
 			}
 			break;
+
 		case Ruru:
 			DrawGraph(0, 0, ruruGraph, TRUE);
+			
+			level_->Update(keys, oldkeys);
+
+			level_->Draw();
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
-				sceneState = Level1;
+				sceneState = level_->levelNumber;
 			}
 			break;
 		}
@@ -143,10 +153,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			DrawGraph(0, 0, backGraph, TRUE);
 
 			DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:ともだち");
+	
 		}
 		
-
-		//DrawFormatString(200, 0, GetColor(255, 255, 255), "timer=%d", timer);
 		//---------  ここまでにプログラムを記述  ---------//
 
 		ScreenFlip();// (ダブルバッファ)裏面

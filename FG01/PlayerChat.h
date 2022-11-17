@@ -11,9 +11,13 @@ public:
 	void Update(char *keys, char* oldkeys);
 	void Draw();
 
-	int chatSendFlag[20];
+	int chatSendFlag[10];
 
 	int chatFalse = 0;
+
+	int clearTimer = 30;
+
+	int endTimer = 30;
 private:
 	char keys[256] = { 0 };   // 最新のキーボード情報用
 	char oldkeys[256] = { 0 };// 1ループ(フレーム)前のキーボード情報
@@ -25,14 +29,18 @@ private:
 	int chatchose = 0;
 
 	int sceneState = 0;
-	//仮
+	
 	int chattime;
 
-	int chatSendCount = 0;
+	int chatSendCount;
 
 	int ChatScrollY = 0;
 
 	int chatSendGraph = LoadGraph("Resource\\playerText.png");
 
 	int chatSelectGraph = LoadGraph("Resource\\text_small.png");
+
+	int chatChoseFlage = 0;
+
+	//void ChatFalse();
 };

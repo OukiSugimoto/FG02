@@ -1,15 +1,13 @@
 #pragma once
 #include"DxLib.h"
-#include"EnemyChat.h"
 
-class Talk : public EnemyChat
+class Talk
 {
 public:
 	Talk();
 	~Talk();
 
 	void Initialize();
-	void Update(char *key);
 	void Draw();
 
 private:
@@ -24,7 +22,6 @@ private:
 	//スクロール用変数
 	int posY2;
 	
-	int talk2Graph = talkGraph;
 	//タイマー
 	int time;
 	int timer;
