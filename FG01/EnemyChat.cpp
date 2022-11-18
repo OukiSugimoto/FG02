@@ -14,7 +14,10 @@ void EnemyChat::Initialize() {
 	enemyPosY[4] = 490;       enemyPosY[5] = 590;
 
 	enemyPosX[6] = 20;        enemyPosX[7] = 20;
-	enemyPosY[6] = 440;       enemyPosY[7] = 490; 
+	enemyPosY[6] = 690;       enemyPosY[7] = 790; 
+
+    enemyPosX[8] = 20;        enemyPosX[9] = 20;
+    enemyPosY[8] = 890;       enemyPosY[9] = 990;
 
 	chatReceponCount = 0;
 
@@ -27,8 +30,6 @@ void EnemyChat::Initialize() {
 	ChatScrollY = 0;
 
     chatchose = 0;
-
-    chatReceponCount = 0;
 
     chatChoseFlage = 0;
 }
