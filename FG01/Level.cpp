@@ -35,18 +35,18 @@ void Level::Draw() {
 	}
 
 	if (levelNumber == 2) {
-		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:aaa");
+		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:春日");
 	}
 	
 	if (levelNumber == 3) {
-		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:bbb");
+		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:ヘリオス");
 	}
 
 	if (levelNumber == 4) {
-		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:ccc");
+		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:ジョイボーイ");
 	}
 
 	if (levelNumber == 5) {
-		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:ddd");
+		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:カイドウ");
 	}
 }

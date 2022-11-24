@@ -34,5 +34,6 @@ private:
 	int chatReceponSe = LoadSoundMem("Resource\\teroren.mp3",6);
 
 	int chatChoseFlage = 0;
+
 };
 

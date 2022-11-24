@@ -152,7 +152,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Downloads\FG01_01-master\FG01_01-master\FG01\GameOver.cpp" />
     <ClCompile Include="EnemyChat.cpp" />
     <ClCompile Include="PlayerChat.cpp" />
     <ClCompile Include="Level.cpp" />
@@ -160,7 +159,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Downloads\FG01_01-master\FG01_01-master\FG01\GameOver.h" />
     <ClInclude Include="EnemyChat.h" />
     <ClInclude Include="PlayerChat.h" />
     <ClInclude Include="Level.h" />

@@ -75,19 +75,21 @@ void EnemyChat::Update(char* keys, char* oldkeys) {
     if (chatReceponCount == 0) {
         chatAnser = 1;
         if (chatchose == chatAnser) {
-            PlaySoundMem(chatReceponSe,DX_PLAYTYPE_BACK,FALSE);
+            PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
             chatReceponFlag[1] = TRUE;
             chatReceponCount += 1;
         }
+       
     }
 
     if (chatReceponCount == 1) {
         chatAnser = 3;
-        if (chatchose == chatAnser) {
-            PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
-            chatReceponFlag[2] = TRUE;
-            chatReceponCount += 1;
-        }
+       if (chatchose == chatAnser) {
+           PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
+           chatReceponFlag[2] = TRUE;
+           chatReceponCount += 1;
+       }
+        
     }
 
     if (chatReceponCount == 2) {
@@ -114,7 +116,7 @@ void EnemyChat::Update(char* keys, char* oldkeys) {
         chatAnser = 4;
         if (chatchose == chatAnser) {
             PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
-            chatReceponFlag[4] = TRUE;
+            chatReceponFlag[5] = TRUE;
             chatReceponCount += 1;
 
             ChatScrollY -= 50;

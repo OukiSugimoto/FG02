@@ -34,7 +34,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	SetMainWindowText(TITLE);                 // タイトルを変更
 	SetGraphMode(WIN_WIDTH, WIN_HEIGHT, 32);  // 画面サイズの最大サイズ、カラービット数を設定(モニターの解像度に合わせる)
 	SetWindowSizeExtendRate(1.0);             // 画面サイズを設定(解像度との比率で設定)
-	SetBackgroundColor(0, 0, 0);     // 画面の背景色を設定する
+	SetBackgroundColor(128, 0, 0);     // 画面の背景色を設定する
 	SetDrawScreen(DX_SCREEN_BACK);            // (ダブルバッファ)描画先グラフィック領域は裏面を指定
 	SetFontSize(20);
 	if (DxLib_Init() == -1) { return -1; }    // DXlibの初期化
@@ -98,7 +98,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			break;
 
 		case Level1:
-			
 			playerchat_->Update(keys, oldkeys);
 
 			enemychat_->Update(keys, oldkeys);
@@ -107,12 +106,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 				sceneState = End;
 			}
 
-			if (playerchat_->chatFalse == 2) {
-				playerchat_->clearTimer--;
-				if (playerchat_->clearTimer == 0) {
-					sceneState = Clear;
-				}
-			}
 			break;
 
 		case End:
@@ -152,8 +145,13 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 			DrawGraph(0, 0, backGraph, TRUE);
 
+			SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
+			DrawGraph(18,69,textGraph,TRUE);
+			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+
 			DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:ともだち");
-	
+
+			DrawFormatString(420, 30, GetColor(255, 255, 255), "好感度 = %d",playerchat_->ChatLikePoint);
 		}
 		
 		//---------  ここまでにプログラムを記述  ---------//

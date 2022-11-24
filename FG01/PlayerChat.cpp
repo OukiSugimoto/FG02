@@ -22,19 +22,35 @@ void PlayerChat::Initialize() {
 
 	ChatScrollY = 0;
 
-	for (int i = 0; i < 10; i++) {
-		chatSendFlag[i] = FALSE;
-	}
-
 	chatchose = 0;
 
 	chatFalse = 0;
 
 	chatChoseFlage = 0;
 
+	
 	clearTimer = 30;
 
 	endTimer = 30;
+
+	ChatLikePoint = 100;
+	
+	HpAnime = 0;
+
+	index = 0;
+
+	for (int i = 0; i < 10; i++) {
+		chatSendFlag[i] = FALSE;
+	}
+
+	ChatLikeFlag = 0;
+}
+
+
+void PlayerChat::ChatLike() {
+	
+
+	
 }
 
 void PlayerChat::Update(char* keys , char* oldkeys) {
@@ -55,36 +71,52 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 		chatchose = 4;
 	}
 
+	
+
 	if (chatSendCount == 0) {
 		chatAnser = 1;
 
 		if (chatchose == chatAnser) {
-			chatSendFlag[0] = TRUE;
 			chatchose = 0;
+			chatSendFlag[0] = TRUE;
 			chatChoseFlage = 1;
 			chatSendCount += 1;
 		}
+	    if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+			
+			PlayerChat::ChatLike();
+			
+		}
+		
 	}
 
 	if (chatSendCount == 1) {
-		chatAnser = 3;
 		
+		chatAnser = 3;
+
 		if (chatchose == chatAnser) {
-			chatSendFlag[1] = TRUE;
 			chatchose = 0;
+			chatSendFlag[1] = TRUE;
 			chatChoseFlage = 2;
 			chatSendCount += 1;
 		}
+		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
+			PlayerChat::ChatLike();
+		}
+
 	}
 	
 	if (chatSendCount == 2) {
 		chatAnser = 2;
-		
+
 		if (chatchose == chatAnser) {
 			chatSendFlag[2] = TRUE;
 			chatchose = 0;
 			chatChoseFlage = 3;
 			chatSendCount += 1;
+		}
+		if (chatchose == 1 || chatchose == 3 || chatchose == 4) {
+			PlayerChat::ChatLike();
 		}
 	}
 
@@ -92,18 +124,21 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 		chatAnser = 3;
 
 		if (chatchose == chatAnser) {
-			chatSendFlag[3] = TRUE;
 			chatchose = 0;
+			chatSendFlag[3] = TRUE;
 			chatChoseFlage = 4;
 			chatSendCount += 1;
 
 			ChatScrollY -= 50;
 		}
+		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
+			PlayerChat::ChatLike();
+		}
 	}
 
 	if (chatSendCount == 4) {
 		chatAnser = 4;
-		
+
 		if (chatchose == chatAnser) {
 			chatSendFlag[4] = TRUE;
 			chatSendCount += 1;
@@ -112,6 +147,9 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatchose = 0;
 
 			chatFalse = 2;
+		}
+		if (chatchose == 2 || chatchose == 3 || chatchose == 1) {
+			PlayerChat::ChatLike();
 		}
 
 	}
@@ -207,6 +245,7 @@ void PlayerChat::Draw(){
 			DrawFormatString(68, 750, GetColor(0, 0, 0), "ok!");
 			DrawFormatString(350, 750, GetColor(0, 0, 0), "â‘Î‚¾‚ß!");
 		}
+
 	/*DrawFormatString(100, 100, GetColor(255, 255, 255), "%d", chatSendCount);
 	DrawFormatString(100, 200, GetColor(255, 255, 255), "chattime=%d", chattime);*/
 }

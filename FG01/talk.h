@@ -11,8 +11,8 @@ public:
 	void Draw();
 
 private:
-	int posX;
-	int posY;
+	int posX = 0;
+	int posY = 0;
 
 	int talkGraph = LoadGraph("Resource\\talk.png");	
 

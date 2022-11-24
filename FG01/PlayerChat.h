@@ -11,6 +11,8 @@ public:
 	void Update(char *keys, char* oldkeys);
 	void Draw();
 
+	void ChatLike();
+
 	int chatSendFlag[10];
 
 	int chatFalse = 0;
@@ -18,6 +20,11 @@ public:
 	int clearTimer = 30;
 
 	int endTimer = 30;
+
+	int ChatLikeFlag = 0;
+
+	int ChatLikePoint = 100;
+
 private:
 	char keys[256] = { 0 };   // 最新のキーボード情報用
 	char oldkeys[256] = { 0 };// 1ループ(フレーム)前のキーボード情報
@@ -40,7 +47,12 @@ private:
 
 	int chatSelectGraph = LoadGraph("Resource\\text_small.png");
 
+	int PlayerLife = LoadGraph("Resource\\HP.png");
+
 	int chatChoseFlage = 0;
 
-	//void ChatFalse();
+	int HpAnime = 0;
+
+	int index = 0;
+
 };
