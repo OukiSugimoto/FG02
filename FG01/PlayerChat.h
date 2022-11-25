@@ -21,7 +21,7 @@ public:
 
 	int endTimer = 30;
 
-	int ChatLikeFlag = 0;
+	int ChatLikeFlag = FALSE;
 
 	int ChatLikePoint = 100;
 

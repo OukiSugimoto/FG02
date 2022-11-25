@@ -43,13 +43,11 @@ void PlayerChat::Initialize() {
 		chatSendFlag[i] = FALSE;
 	}
 
-	ChatLikeFlag = 0;
+	ChatLikeFlag = FALSE;
 }
 
 
 void PlayerChat::ChatLike() {
-	
-
 	
 }
 
@@ -70,7 +68,6 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 	if (keys[KEY_INPUT_4] == FALSE && oldkeys[KEY_INPUT_4] == TRUE) {
 		chatchose = 4;
 	}
-
 	
 
 	if (chatSendCount == 0) {
@@ -83,9 +80,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatSendCount += 1;
 		}
 	    if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-			
-			PlayerChat::ChatLike();
-			
+			ChatLikeFlag = TRUE;
 		}
 		
 	}
@@ -101,7 +96,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatSendCount += 1;
 		}
 		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
-			PlayerChat::ChatLike();
+			ChatLikeFlag = TRUE;
 		}
 
 	}
@@ -116,7 +111,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatSendCount += 1;
 		}
 		if (chatchose == 1 || chatchose == 3 || chatchose == 4) {
-			PlayerChat::ChatLike();
+			ChatLikeFlag = TRUE;
 		}
 	}
 
@@ -132,7 +127,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			ChatScrollY -= 50;
 		}
 		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
-			PlayerChat::ChatLike();
+			ChatLikeFlag = TRUE;
 		}
 	}
 
@@ -149,9 +144,13 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatFalse = 2;
 		}
 		if (chatchose == 2 || chatchose == 3 || chatchose == 1) {
-			PlayerChat::ChatLike();
+			ChatLikeFlag = TRUE;
 		}
 
+	}
+
+	if (ChatLikeFlag == TRUE) {
+		PlayerChat::ChatLike();
 	}
 }
 

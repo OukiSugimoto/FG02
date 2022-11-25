@@ -28,25 +28,25 @@ void Level::Update(char* keys, char* oldkeys) {
 }
 
 void Level::Draw() {
-	DrawFormatString(80, 150, GetColor(0, 0, 0), "level = %d", levelNumber);
+	DrawFormatString(80, 250, GetColor(0, 0, 0), "level = %d", levelNumber);
 
 	if (levelNumber == 1) {
-		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:ともだち");
+		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡相手:ともだち");
 	}
 
 	if (levelNumber == 2) {
-		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:春日");
+		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡相手:春日");
 	}
 	
 	if (levelNumber == 3) {
-		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:ヘリオス");
+		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡相手:ヘリオス");
 	}
 
 	if (levelNumber == 4) {
-		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:ジョイボーイ");
+		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡相手:ジョイボーイ");
 	}
 
 	if (levelNumber == 5) {
-		DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:カイドウ");
+		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡相手:カイドウ");
 	}
 }
