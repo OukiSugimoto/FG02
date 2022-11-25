@@ -16,6 +16,15 @@ void PlayerChat::Initialize() {
 	playerPosX[8] = 320;       playerPosX[9] = 320;
 	playerPosY[8] = 940;       playerPosY[9] = 1040;
 
+	playerHpPosX[0] = 420;     playerHpPosX[1] = 450;
+	playerHpPosY[0] = 30;      playerHpPosY[1] = 30;
+
+	playerHpPosX[2] = 480;     playerHpPosX[3] = 510;
+	playerHpPosY[2] = 30;      playerHpPosY[3] = 30;
+
+	playerHpPosX[4] = 540;
+	playerHpPosY[4] = 30;
+
 	chattime = 60;
 
 	chatSendCount = 0;
@@ -28,13 +37,14 @@ void PlayerChat::Initialize() {
 
 	chatChoseFlage = 0;
 
-	
 	clearTimer = 30;
 
 	endTimer = 30;
 
 	ChatLikePoint = 100;
 	
+	AnimeTime = 0;
+
 	HpAnime = 0;
 
 	index = 0;
@@ -43,15 +53,16 @@ void PlayerChat::Initialize() {
 		chatSendFlag[i] = FALSE;
 	}
 
-	ChatLikeFlag = FALSE;
 }
 
-
 void PlayerChat::ChatLike() {
-	
+	chatchose = 0;
+
+	ChatLikePoint -= 20;
 }
 
 void PlayerChat::Update(char* keys , char* oldkeys) {
+	shakeChat = rand() % 11 - 10;
 
 	if (keys[KEY_INPUT_1] == FALSE && oldkeys[KEY_INPUT_1] == TRUE) {
 		chatchose = 1;
@@ -78,9 +89,10 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatSendFlag[0] = TRUE;
 			chatChoseFlage = 1;
 			chatSendCount += 1;
+			
 		}
 	    if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-			ChatLikeFlag = TRUE;
+			ChatLike();
 		}
 		
 	}
@@ -96,7 +108,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatSendCount += 1;
 		}
 		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
-			ChatLikeFlag = TRUE;
+			ChatLike();
 		}
 
 	}
@@ -111,7 +123,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatSendCount += 1;
 		}
 		if (chatchose == 1 || chatchose == 3 || chatchose == 4) {
-			ChatLikeFlag = TRUE;
+			ChatLike();
 		}
 	}
 
@@ -127,7 +139,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			ChatScrollY -= 50;
 		}
 		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
-			ChatLikeFlag = TRUE;
+			ChatLike();
 		}
 	}
 
@@ -144,13 +156,9 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatFalse = 2;
 		}
 		if (chatchose == 2 || chatchose == 3 || chatchose == 1) {
-			ChatLikeFlag = TRUE;
+			ChatLike();
 		}
 
-	}
-
-	if (ChatLikeFlag == TRUE) {
-		PlayerChat::ChatLike();
 	}
 }
 

@@ -14,17 +14,29 @@ public:
 	void ChatLike();
 
 	int chatSendFlag[10];
-
+	
 	int chatFalse = 0;
 
 	int clearTimer = 30;
 
 	int endTimer = 30;
 
-	int ChatLikeFlag = FALSE;
-
 	int ChatLikePoint = 100;
 
+	int playerHpPosX[5];
+	int playerHpPosY[5];
+
+	int Animes[7];
+
+	int AnimeTime = 0;
+
+	int index = 0;
+
+	int PlayerLifeGraph = LoadGraph("Resource\\HP.png");
+
+	int PlayerLifeAnime = LoadDivGraph("Resource\\HPAnime.png", 7, 7, 1, 32, 32, Animes);
+
+	int shakeChat = rand() % 11 - 10;
 private:
 	char keys[256] = { 0 };   // 最新のキーボード情報用
 	char oldkeys[256] = { 0 };// 1ループ(フレーム)前のキーボード情報
@@ -47,12 +59,8 @@ private:
 
 	int chatSelectGraph = LoadGraph("Resource\\text_small.png");
 
-	int PlayerLife = LoadGraph("Resource\\HP.png");
-
 	int chatChoseFlage = 0;
 
 	int HpAnime = 0;
-
-	int index = 0;
-
+	
 };
