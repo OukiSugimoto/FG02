@@ -16,14 +16,14 @@ const int WIN_HEIGHT = 900;
 enum GAMESCENE
 {
 	Title,
+	Ruru,
+	End,
+	Clear,
 	Level1,
 	Level2,
 	Level3,
 	Level4,
-	Level5,
-	End,
-	Clear,
-	Ruru
+	Level5
 };
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
@@ -57,12 +57,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	Level* level_ = new Level;
 
 	//タイマー
-	int time = 0;
-	int timer = 120;
-
 	int alpha = 20;
-
-	int count = 0;
 
 	char keys[256] = { 0 };   // 最新のキーボード情報用
 	char oldkeys[256] = { 0 };// 1ループ(フレーム)前のキーボード情報
@@ -93,6 +88,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 			level_->initialize();
 
+			alpha = 0;
+
 			DrawGraph(0,0,titleGraph,TRUE);
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
 				sceneState = Ruru;
@@ -107,6 +104,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 			if (playerchat_->chatFalse == 1) {
 				sceneState = End;
+			}
+			if (playerchat_->chatFalse == 2) {
+				sceneState = Clear;
 			}
 			break;
 
@@ -130,6 +130,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			level_->Update(keys, oldkeys);
 
 			level_->Draw();
+
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
 				sceneState = level_->levelNumber;
 			}
@@ -146,16 +147,54 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			enemychat_->Draw();
 
 			DrawGraph(0, 0, backGraph, TRUE);
+			
+		}
+		
+		if (sceneState == Level2) {
+			talk_->Draw();
 
-			playerchat_->AnimeTime++;
-			if (playerchat_->AnimeTime >= 7)
-			{
-				playerchat_->index = (playerchat_->index + 1) % 7;
+			playerchat_->Draw();
 
-				playerchat_->AnimeTime = 3;
-			}
+			enemychat_->Draw();
 
+			DrawGraph(0, 0, backGraph, TRUE);
 
+		}
+
+		if (sceneState == Level3) {
+			talk_->Draw();
+
+			playerchat_->Draw();
+
+			enemychat_->Draw();
+
+			DrawGraph(0, 0, backGraph, TRUE);
+
+		}
+
+		if (sceneState == Level4) {
+			talk_->Draw();
+
+			playerchat_->Draw();
+
+			enemychat_->Draw();
+
+			DrawGraph(0, 0, backGraph, TRUE);
+
+		}
+
+		if (sceneState == Level5) {
+			talk_->Draw();
+
+			playerchat_->Draw();
+
+			enemychat_->Draw();
+
+			DrawGraph(0, 0, backGraph, TRUE);
+
+		}
+
+		if (Level1 <= sceneState) {
 			if (playerchat_->ChatLikePoint == 100) {
 				DrawGraph(playerchat_->playerHpPosX[0], playerchat_->playerHpPosY[0], playerchat_->PlayerLifeGraph, TRUE);
 				DrawGraph(playerchat_->playerHpPosX[1], playerchat_->playerHpPosY[1], playerchat_->PlayerLifeGraph, TRUE);
@@ -165,7 +204,23 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			}
 
 			if (playerchat_->ChatLikePoint == 80) {
-				DrawGraph(playerchat_->playerHpPosX[0], playerchat_->playerHpPosY[0], playerchat_->PlayerLifeGraph,TRUE);
+				playerchat_->AnimeTime++;
+
+				if (playerchat_->count == 0) {
+
+					if (playerchat_->AnimeTime >= 7)
+					{
+						playerchat_->index = (playerchat_->index + 1) % 7;
+
+						playerchat_->AnimeTime = 0;
+
+					}
+				}
+				if (playerchat_->index >= 6) {
+					playerchat_->count += 1;
+				}
+
+				DrawGraph(playerchat_->playerHpPosX[0], playerchat_->playerHpPosY[0], playerchat_->PlayerLifeGraph, TRUE);
 				DrawGraph(playerchat_->playerHpPosX[1], playerchat_->playerHpPosY[1], playerchat_->PlayerLifeGraph, TRUE);
 				DrawGraph(playerchat_->playerHpPosX[2], playerchat_->playerHpPosY[2], playerchat_->PlayerLifeGraph, TRUE);
 				DrawGraph(playerchat_->playerHpPosX[3], playerchat_->playerHpPosY[3], playerchat_->PlayerLifeGraph, TRUE);
@@ -173,52 +228,104 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			}
 
 			if (playerchat_->ChatLikePoint == 60) {
+				playerchat_->AnimeTime++;
+
+				if (playerchat_->count == 0) {
+
+					if (playerchat_->AnimeTime >= 7)
+					{
+						playerchat_->index = (playerchat_->index + 1) % 7;
+
+						playerchat_->AnimeTime = 0;
+
+					}
+				}
+				if (playerchat_->index >= 6) {
+					playerchat_->count += 1;
+				}
+
 				DrawGraph(playerchat_->playerHpPosX[0], playerchat_->playerHpPosY[0], playerchat_->PlayerLifeGraph, TRUE);
 				DrawGraph(playerchat_->playerHpPosX[1], playerchat_->playerHpPosY[1], playerchat_->PlayerLifeGraph, TRUE);
 				DrawGraph(playerchat_->playerHpPosX[2], playerchat_->playerHpPosY[2], playerchat_->PlayerLifeGraph, TRUE);
 				DrawGraph(playerchat_->playerHpPosX[3], playerchat_->playerHpPosY[3], playerchat_->Animes[playerchat_->index], TRUE);
-				DrawGraph(playerchat_->playerHpPosX[4], playerchat_->playerHpPosY[4], playerchat_->Animes[playerchat_->index], TRUE);
 			}
 
 			if (playerchat_->ChatLikePoint == 40) {
+				playerchat_->AnimeTime++;
+
+				if (playerchat_->count == 0) {
+
+					if (playerchat_->AnimeTime >= 7)
+					{
+						playerchat_->index = (playerchat_->index + 1) % 7;
+
+						playerchat_->AnimeTime = 0;
+
+					}
+				}
+				if (playerchat_->index >= 6) {
+					playerchat_->count += 1;
+				}
+
 				DrawGraph(playerchat_->playerHpPosX[0], playerchat_->playerHpPosY[0], playerchat_->PlayerLifeGraph, TRUE);
 				DrawGraph(playerchat_->playerHpPosX[1], playerchat_->playerHpPosY[1], playerchat_->PlayerLifeGraph, TRUE);
 				DrawGraph(playerchat_->playerHpPosX[2], playerchat_->playerHpPosY[2], playerchat_->Animes[playerchat_->index], TRUE);
-				DrawGraph(playerchat_->playerHpPosX[3], playerchat_->playerHpPosY[3], playerchat_->Animes[playerchat_->index], TRUE);
-				DrawGraph(playerchat_->playerHpPosX[4], playerchat_->playerHpPosY[4], playerchat_->Animes[playerchat_->index], TRUE);
+
 			}
 
 			if (playerchat_->ChatLikePoint == 20) {
+				playerchat_->AnimeTime++;
+
+				if (playerchat_->count == 0) {
+					if (playerchat_->AnimeTime >= 7)
+					{
+						playerchat_->index = (playerchat_->index + 1) % 7;
+
+						playerchat_->AnimeTime = 0;
+
+					}
+				}
+				if (playerchat_->index >= 6) {
+					playerchat_->count += 1;
+				}
+
 				DrawGraph(playerchat_->playerHpPosX[0] + playerchat_->shakeChat, playerchat_->playerHpPosY[0], playerchat_->PlayerLifeGraph, TRUE);
 				DrawGraph(playerchat_->playerHpPosX[1], playerchat_->playerHpPosY[1], playerchat_->Animes[playerchat_->index], TRUE);
-				DrawGraph(playerchat_->playerHpPosX[2], playerchat_->playerHpPosY[2], playerchat_->Animes[playerchat_->index], TRUE);
-				DrawGraph(playerchat_->playerHpPosX[3], playerchat_->playerHpPosY[3], playerchat_->Animes[playerchat_->index], TRUE);
-				DrawGraph(playerchat_->playerHpPosX[4], playerchat_->playerHpPosY[4], playerchat_->Animes[playerchat_->index], TRUE);
+
 
 				alpha += 2;
 
-			if (alpha >= 120) {
-				alpha = 40;
+				if (alpha >= 120) {
+					alpha = 40;
+				}
+
+				SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
+				DrawGraph(18, 69, textGraph, TRUE);
+				SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+
+				SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
+				DrawGraph(18, 69, kikenGraph, TRUE);
+				SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+
+				if (playerchat_->ChatLikePoint == 0) {
+					DrawGraph(playerchat_->playerHpPosX[0], playerchat_->playerHpPosY[0], playerchat_->Animes[playerchat_->index], TRUE);
+
+				}
+
+				SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
+				DrawGraph(18, 69, textGraph, TRUE);
+				SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+
+				SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
+				DrawGraph(18, 69, kikenGraph, TRUE);
+				SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 			}
-
-			SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
-			DrawGraph(18, 69, textGraph, TRUE);
-			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
-
-			SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
-			DrawGraph(18, 69, kikenGraph, TRUE);
-			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+			if (sceneState == Level1) {
+				DrawFormatString(390, 80, GetColor(0, 0, 0), "連絡相手:ともだち");
 			}
-
-
 			
 
-
-			DrawFormatString(200, 30, GetColor(0, 0, 0), "連絡相手:ともだち");
-
-			//DrawFormatString(420, 30, GetColor(255, 255, 255), "好感度 = %d",playerchat_->ChatLikePoint);
 		}
-		
 		//---------  ここまでにプログラムを記述  ---------//
 
 		ScreenFlip();// (ダブルバッファ)裏面

@@ -24,7 +24,7 @@ void PlayerChat::Initialize() {
 
 	playerHpPosX[4] = 540;
 	playerHpPosY[4] = 30;
-
+	
 	chattime = 60;
 
 	chatSendCount = 0;
@@ -49,6 +49,10 @@ void PlayerChat::Initialize() {
 
 	index = 0;
 
+	count = 0;
+
+	Timer = 30;
+
 	for (int i = 0; i < 10; i++) {
 		chatSendFlag[i] = FALSE;
 	}
@@ -59,6 +63,10 @@ void PlayerChat::ChatLike() {
 	chatchose = 0;
 
 	ChatLikePoint -= 20;
+
+	if (ChatLikePoint ==  0){
+		chatFalse = 1;
+	}
 }
 
 void PlayerChat::Update(char* keys , char* oldkeys) {
@@ -66,25 +74,29 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 
 	if (keys[KEY_INPUT_1] == FALSE && oldkeys[KEY_INPUT_1] == TRUE) {
 		chatchose = 1;
+		count = 0;
 	}
 
 	if (keys[KEY_INPUT_2] == FALSE && oldkeys[KEY_INPUT_2] == TRUE) {
 		chatchose = 2;
+		count = 0;
 	}
 
 	if (keys[KEY_INPUT_3] == FALSE && oldkeys[KEY_INPUT_3] == TRUE) {
 		chatchose = 3;
+		count = 0;
 	}
 
 	if (keys[KEY_INPUT_4] == FALSE && oldkeys[KEY_INPUT_4] == TRUE) {
 		chatchose = 4;
+		count = 0;
 	}
-	
 
 	if (chatSendCount == 0) {
 		chatAnser = 1;
 
 		if (chatchose == chatAnser) {
+			count = 1;
 			chatchose = 0;
 			chatSendFlag[0] = TRUE;
 			chatChoseFlage = 1;
@@ -102,6 +114,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 		chatAnser = 3;
 
 		if (chatchose == chatAnser) {
+			count = 1;
 			chatchose = 0;
 			chatSendFlag[1] = TRUE;
 			chatChoseFlage = 2;
@@ -117,6 +130,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 		chatAnser = 2;
 
 		if (chatchose == chatAnser) {
+			count = 1;
 			chatSendFlag[2] = TRUE;
 			chatchose = 0;
 			chatChoseFlage = 3;
@@ -131,6 +145,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 		chatAnser = 3;
 
 		if (chatchose == chatAnser) {
+			count = 1;
 			chatchose = 0;
 			chatSendFlag[3] = TRUE;
 			chatChoseFlage = 4;
@@ -147,6 +162,8 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 		chatAnser = 4;
 
 		if (chatchose == chatAnser) {
+			count = 1;
+
 			chatSendFlag[4] = TRUE;
 			chatSendCount += 1;
 			chatChoseFlage = 5;
@@ -252,7 +269,4 @@ void PlayerChat::Draw(){
 			DrawFormatString(68, 750, GetColor(0, 0, 0), "ok!");
 			DrawFormatString(350, 750, GetColor(0, 0, 0), "â‘Î‚¾‚ß!");
 		}
-
-	/*DrawFormatString(100, 100, GetColor(255, 255, 255), "%d", chatSendCount);
-	DrawFormatString(100, 200, GetColor(255, 255, 255), "chattime=%d", chattime);*/
 }

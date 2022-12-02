@@ -13,7 +13,7 @@ public:
 
 	void Draw();
 
-	int levelNumber = 1;
+	int levelNumber = 4;
 private:
 	
 

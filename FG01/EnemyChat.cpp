@@ -23,15 +23,15 @@ void EnemyChat::Initialize() {
 
 	chatReceponFlag[0] = TRUE;
 
-    for (int i = 1; i < 10; i++) {
-        chatReceponFlag[i] = FALSE;
-    }
-
 	ChatScrollY = 0;
 
     chatchose = 0;
 
     chatChoseFlage = 0;
+
+    for (int i = 1; i < 10; i++) {
+        chatReceponFlag[i] = FALSE;
+    }
 }
 
 void EnemyChat::Update(char* keys, char* oldkeys) {

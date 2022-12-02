@@ -32,11 +32,14 @@ public:
 
 	int index = 0;
 
+	int count = 0;
+
+	int shakeChat = rand() % 11 - 10;
+
 	int PlayerLifeGraph = LoadGraph("Resource\\HP.png");
 
 	int PlayerLifeAnime = LoadDivGraph("Resource\\HPAnime.png", 7, 7, 1, 32, 32, Animes);
 
-	int shakeChat = rand() % 11 - 10;
 private:
 	char keys[256] = { 0 };   // 最新のキーボード情報用
 	char oldkeys[256] = { 0 };// 1ループ(フレーム)前のキーボード情報
@@ -49,9 +52,13 @@ private:
 
 	int sceneState = 0;
 	
+	int Timer = 0;
+
 	int chattime;
 
 	int chatSendCount;
+
+	int chatDamege = rand() % 21 - 20;
 
 	int ChatScrollY = 0;
 
@@ -62,5 +69,6 @@ private:
 	int chatChoseFlage = 0;
 
 	int HpAnime = 0;
+	
 	
 };
