@@ -93,7 +93,21 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 	}
 
 	if (chatSendCount == 0) {
-		chatAnser = 1;
+		if (levelNumber == 4) {
+			chatAnser = 1;
+		}
+	
+		if (levelNumber == 5) {
+			chatAnser = 1;
+		}
+
+		if (levelNumber == 6) {
+			chatAnser = 1;
+		}
+
+		if (levelNumber == 7) {
+			chatAnser = 1;
+		}
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -103,15 +117,49 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatSendCount += 1;
 			
 		}
-	    if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-			ChatLike();
+
+		if (levelNumber == 4) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
 		}
-		
+	   
+		if (levelNumber == 5) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 6) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 7) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
 	}
 
 	if (chatSendCount == 1) {
 		
-		chatAnser = 3;
+		if (levelNumber == 4) {
+			chatAnser = 3;
+		}
+
+		if (levelNumber == 5) {
+			chatAnser = 1;
+		}
+
+		if (levelNumber == 6) {
+			chatAnser = 1;
+		}
+
+		if (levelNumber == 7) {
+			chatAnser = 1;
+		}
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -120,14 +168,48 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatChoseFlage = 2;
 			chatSendCount += 1;
 		}
-		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
-			ChatLike();
+
+		if (levelNumber == 4) {
+			if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
+				ChatLike();
+			}
 		}
 
+		if (levelNumber == 5) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 6) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 7) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
 	}
 	
 	if (chatSendCount == 2) {
-		chatAnser = 2;
+		if (levelNumber == 4) {
+			chatAnser = 2;
+		}
+
+		if (levelNumber == 5) {
+			chatAnser = 1;
+		}
+
+		if (levelNumber == 6) {
+			chatAnser = 1;
+		}
+
+		if (levelNumber == 7) {
+			chatAnser = 1;
+		}
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -136,13 +218,47 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatChoseFlage = 3;
 			chatSendCount += 1;
 		}
-		if (chatchose == 1 || chatchose == 3 || chatchose == 4) {
-			ChatLike();
+		if (levelNumber == 4) {
+			if (chatchose == 1 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 5) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 6) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 7) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
 		}
 	}
 
 	if (chatSendCount == 3) {
-		chatAnser = 3;
+		if (levelNumber == 4) {
+			chatAnser = 3;
+		}
+
+		if (levelNumber == 5) {
+			chatAnser = 1;
+		}
+
+		if (levelNumber == 6) {
+			chatAnser = 1;
+		}
+
+		if (levelNumber == 7) {
+			chatAnser = 1;
+		}
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -153,13 +269,48 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 
 			ChatScrollY -= 50;
 		}
-		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
-			ChatLike();
+
+		if (levelNumber == 4) {
+			if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 5) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 6) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 7) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
 		}
 	}
 
 	if (chatSendCount == 4) {
-		chatAnser = 4;
+		if (levelNumber == 4) {
+			chatAnser = 4;
+		}
+
+		if (levelNumber == 5) {
+			chatAnser = 1;
+		}
+
+		if (levelNumber == 6) {
+			chatAnser = 1;
+		}
+
+		if (levelNumber == 7) {
+			chatAnser = 1;
+		}
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -172,8 +323,29 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 
 			chatFalse = 2;
 		}
-		if (chatchose == 2 || chatchose == 3 || chatchose == 1) {
-			ChatLike();
+
+		if (levelNumber == 4) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 1) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 5) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 6) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
+		}
+
+		if (levelNumber == 7) {
+			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+				ChatLike();
+			}
 		}
 
 	}
@@ -192,27 +364,82 @@ void PlayerChat::Draw(){
 
 		if (chatSendFlag[0] == TRUE) {
 			DrawGraph(playerPosX[0], playerPosY[0] + ChatScrollY, chatSendGraph, TRUE);
-			DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç®ÇÕÇÊÇ§");
+			if (levelNumber == 4) {
+				DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç®ÇÕÇÊÇ§");
+			}
+			if (levelNumber == 5) {
+				DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç®ÇÕÇÊÇ§");
+			}
+			if (levelNumber == 6) {
+				DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç®ÇÕÇÊÇ§");
+			}
+			if (levelNumber == 7) {
+				DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç®ÇÕÇÊÇ§");
+			}
 		}
 
 		if (chatSendFlag[1] == TRUE) {
 			DrawGraph(playerPosX[1], playerPosY[1] + ChatScrollY, chatSendGraph, TRUE);
-			DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇÕÇ‚Ç≠Ç±Ç¢!");
+			if (levelNumber == 4) {
+				DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇÕÇ‚Ç≠Ç±Ç¢!");
+			}
+			if (levelNumber == 5) {
+				DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇÕÇ‚Ç≠Ç±Ç¢!");
+			}
+			if (levelNumber == 6) {
+				DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇÕÇ‚Ç≠Ç±Ç¢!");
+			}
+			if (levelNumber == 7) {
+				DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇÕÇ‚Ç≠Ç±Ç¢!");
+			}
 		}
 
 		if (chatSendFlag[2] == TRUE) {
 			DrawGraph(playerPosX[2], playerPosY[2] + ChatScrollY, chatSendGraph, TRUE);
-			DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇæÇﬂ!");
+			if (levelNumber == 4) {
+				DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇæÇﬂ!");
+			}
+			if (levelNumber == 5) {
+				DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇæÇﬂ!");
+			}
+			if (levelNumber == 6) {
+				DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇæÇﬂ!");
+			}
+			if (levelNumber == 7) {
+				DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇæÇﬂ!");
+			}
 		}
 
 		if (chatSendFlag[3] == TRUE) {
 			DrawGraph(playerPosX[3], playerPosY[3] + ChatScrollY, chatSendGraph, TRUE);
-			DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç‹Çæä‘Ç…çáÇ§ÇÊ");
+			if (levelNumber == 4) {
+				DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "	Ç‹Çæä‘Ç…çáÇ§ÇÊ");
+			}
+			if (levelNumber == 5) {
+				DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "	Ç‹Çæä‘Ç…çáÇ§ÇÊ");
+			}
+			if (levelNumber == 6) {
+				DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "	Ç‹Çæä‘Ç…çáÇ§ÇÊ");
+			}
+			if (levelNumber == 7) {
+				DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "	Ç‹Çæä‘Ç…çáÇ§ÇÊ");
+			}
 		}
 
 		if (chatSendFlag[4] == TRUE) {
 			DrawGraph(playerPosX[4], playerPosY[4] + ChatScrollY, chatSendGraph, TRUE);
-			DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "ê‚ëŒÇæÇﬂ!");
+			if (levelNumber == 4) {
+				DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "ê‚ëŒÇæÇﬂ!");
+			}
+			if (levelNumber == 5) {
+				DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "ê‚ëŒÇæÇﬂ!");
+			}
+			if (levelNumber == 6) {
+				DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "ê‚ëŒÇæÇﬂ!");
+			}
+			if (levelNumber == 7) {
+				DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "ê‚ëŒÇæÇﬂ!");
+			}
 		}
 
 		if (chatSendFlag[5] == TRUE) {

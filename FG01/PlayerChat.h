@@ -1,7 +1,8 @@
 #pragma once
 #include"DxLib.h"
+#include"Level.h"
 
-class PlayerChat 
+class PlayerChat : public Level
 {
 public:
 	PlayerChat() {}

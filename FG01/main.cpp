@@ -91,10 +91,12 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			alpha = 0;
 
 			DrawGraph(0,0,titleGraph,TRUE);
+
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
 				sceneState = Ruru;
 
 			}
+
 			break;
 
 		case Level1:
@@ -291,7 +293,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 				DrawGraph(playerchat_->playerHpPosX[0] + playerchat_->shakeChat, playerchat_->playerHpPosY[0], playerchat_->PlayerLifeGraph, TRUE);
 				DrawGraph(playerchat_->playerHpPosX[1], playerchat_->playerHpPosY[1], playerchat_->Animes[playerchat_->index], TRUE);
-
 
 				alpha += 2;
 

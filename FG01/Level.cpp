@@ -14,8 +14,8 @@ void Level::initialize() {
 void Level::Update(char* keys, char* oldkeys) {
 	if (keys[KEY_INPUT_DOWN] == TRUE && oldkeys[KEY_INPUT_DOWN] == FALSE) {
 		levelNumber--;
-		if (levelNumber <= 4) {
-			levelNumber = 4;
+		if (levelNumber <= 3) {
+			levelNumber = 3;
 		}
 	}
 
@@ -28,7 +28,7 @@ void Level::Update(char* keys, char* oldkeys) {
 }
 
 void Level::Draw() {
-	DrawFormatString(80, 250, GetColor(0, 0, 0), "level = %d", levelNumber - 2);
+	DrawFormatString(80, 250, GetColor(0, 0, 0), "level = %d", levelNumber - 3);
 
 	if (levelNumber == 4) {
 		DrawFormatString(180, 30, GetColor(0, 0, 0), "˜A—‘ŠŽè:‚Æ‚à‚¾‚¿");
