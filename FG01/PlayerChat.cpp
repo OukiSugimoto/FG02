@@ -1,5 +1,6 @@
 #include "PlayerChat.h"
- 
+
+
 void PlayerChat::Initialize() {
 	playerPosX[0] = 320;       playerPosX[1] = 320;
 	playerPosY[0] = 140;       playerPosY[1] = 240;
@@ -93,21 +94,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 	}
 
 	if (chatSendCount == 0) {
-		if (levelNumber == 4) {
-			chatAnser = 1;
-		}
-	
-		if (levelNumber == 5) {
-			chatAnser = 1;
-		}
-
-		if (levelNumber == 6) {
-			chatAnser = 1;
-		}
-
-		if (levelNumber == 7) {
-			chatAnser = 1;
-		}
+		chatAnser = 1;
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -118,49 +105,16 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			
 		}
 
-		if (levelNumber == 4) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+		if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
 				ChatLike();
-			}
 		}
-	   
-		if (levelNumber == 5) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
-
-		if (levelNumber == 6) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
-
-		if (levelNumber == 7) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
+		
 	}
 
 	if (chatSendCount == 1) {
+
+		chatAnser = 3;
 		
-		if (levelNumber == 4) {
-			chatAnser = 3;
-		}
-
-		if (levelNumber == 5) {
-			chatAnser = 1;
-		}
-
-		if (levelNumber == 6) {
-			chatAnser = 1;
-		}
-
-		if (levelNumber == 7) {
-			chatAnser = 1;
-		}
-
 		if (chatchose == chatAnser) {
 			count = 1;
 			chatchose = 0;
@@ -169,47 +123,17 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatSendCount += 1;
 		}
 
-		if (levelNumber == 4) {
-			if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
-				ChatLike();
-			}
+		
+		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
+			ChatLike();
 		}
+		
 
-		if (levelNumber == 5) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
-
-		if (levelNumber == 6) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
-
-		if (levelNumber == 7) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
 	}
 	
 	if (chatSendCount == 2) {
-		if (levelNumber == 4) {
-			chatAnser = 2;
-		}
-
-		if (levelNumber == 5) {
-			chatAnser = 1;
-		}
-
-		if (levelNumber == 6) {
-			chatAnser = 1;
-		}
-
-		if (levelNumber == 7) {
-			chatAnser = 1;
-		}
+		chatAnser = 2;
+		
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -218,47 +142,17 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatChoseFlage = 3;
 			chatSendCount += 1;
 		}
-		if (levelNumber == 4) {
-			if (chatchose == 1 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
+		
+		if (chatchose == 1 || chatchose == 3 || chatchose == 4) {
+			ChatLike();
 		}
+		
 
-		if (levelNumber == 5) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
-
-		if (levelNumber == 6) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
-
-		if (levelNumber == 7) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
 	}
 
 	if (chatSendCount == 3) {
-		if (levelNumber == 4) {
-			chatAnser = 3;
-		}
-
-		if (levelNumber == 5) {
-			chatAnser = 1;
-		}
-
-		if (levelNumber == 6) {
-			chatAnser = 1;
-		}
-
-		if (levelNumber == 7) {
-			chatAnser = 1;
-		}
+		chatAnser = 3;
+		
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -270,47 +164,16 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			ChatScrollY -= 50;
 		}
 
-		if (levelNumber == 4) {
-			if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
-				ChatLike();
-			}
+		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
+			ChatLike();
 		}
 
-		if (levelNumber == 5) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
-
-		if (levelNumber == 6) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
-
-		if (levelNumber == 7) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
 	}
 
 	if (chatSendCount == 4) {
-		if (levelNumber == 4) {
-			chatAnser = 4;
-		}
-
-		if (levelNumber == 5) {
-			chatAnser = 1;
-		}
-
-		if (levelNumber == 6) {
-			chatAnser = 1;
-		}
-
-		if (levelNumber == 7) {
-			chatAnser = 1;
-		}
+		
+		chatAnser = 4;
+		
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -324,30 +187,11 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatFalse = 2;
 		}
 
-		if (levelNumber == 4) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 1) {
-				ChatLike();
-			}
+		
+		if (chatchose == 2 || chatchose == 3 || chatchose == 1) {
+			ChatLike();
 		}
-
-		if (levelNumber == 5) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
-
-		if (levelNumber == 6) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
-
-		if (levelNumber == 7) {
-			if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
-				ChatLike();
-			}
-		}
-
+		
 	}
 }
 
@@ -364,90 +208,46 @@ void PlayerChat::Draw(){
 
 		if (chatSendFlag[0] == TRUE) {
 			DrawGraph(playerPosX[0], playerPosY[0] + ChatScrollY, chatSendGraph, TRUE);
-			if (levelNumber == 4) {
-				DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "おはよう");
-			}
-			if (levelNumber == 5) {
-				DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "おはよう");
-			}
-			if (levelNumber == 6) {
-				DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "おはよう");
-			}
-			if (levelNumber == 7) {
-				DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "おはよう");
-			}
+			DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "おはよう");
+			
 		}
 
 		if (chatSendFlag[1] == TRUE) {
 			DrawGraph(playerPosX[1], playerPosY[1] + ChatScrollY, chatSendGraph, TRUE);
-			if (levelNumber == 4) {
-				DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "はやくこい!");
-			}
-			if (levelNumber == 5) {
-				DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "はやくこい!");
-			}
-			if (levelNumber == 6) {
-				DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "はやくこい!");
-			}
-			if (levelNumber == 7) {
-				DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "はやくこい!");
-			}
+			
+			DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "はやくこい!");
+			
 		}
 
 		if (chatSendFlag[2] == TRUE) {
 			DrawGraph(playerPosX[2], playerPosY[2] + ChatScrollY, chatSendGraph, TRUE);
-			if (levelNumber == 4) {
-				DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "だめ!");
-			}
-			if (levelNumber == 5) {
-				DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "だめ!");
-			}
-			if (levelNumber == 6) {
-				DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "だめ!");
-			}
-			if (levelNumber == 7) {
-				DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "だめ!");
-			}
+			
+			DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "だめ!");
 		}
 
 		if (chatSendFlag[3] == TRUE) {
 			DrawGraph(playerPosX[3], playerPosY[3] + ChatScrollY, chatSendGraph, TRUE);
-			if (levelNumber == 4) {
-				DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "	まだ間に合うよ");
-			}
-			if (levelNumber == 5) {
-				DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "	まだ間に合うよ");
-			}
-			if (levelNumber == 6) {
-				DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "	まだ間に合うよ");
-			}
-			if (levelNumber == 7) {
-				DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "	まだ間に合うよ");
-			}
+		
+			DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "	まだ間に合うよ");
 		}
 
 		if (chatSendFlag[4] == TRUE) {
 			DrawGraph(playerPosX[4], playerPosY[4] + ChatScrollY, chatSendGraph, TRUE);
-			if (levelNumber == 4) {
-				DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "絶対だめ!");
-			}
-			if (levelNumber == 5) {
-				DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "絶対だめ!");
-			}
-			if (levelNumber == 6) {
-				DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "絶対だめ!");
-			}
-			if (levelNumber == 7) {
-				DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "絶対だめ!");
-			}
+			
+			DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "絶対だめ!");
+			
+			
 		}
 
 		if (chatSendFlag[5] == TRUE) {
 			DrawGraph(playerPosX[5], playerPosY[5] + ChatScrollY, chatSendGraph, TRUE);
+			DrawFormatString(playerPosX[5] + 50, playerPosY[5] + 50 + ChatScrollY, GetColor(0, 0, 0), "にんじんとカレー粉");
+			
 		}
 
 		if (chatSendFlag[6] == TRUE) {
 			DrawGraph(playerPosX[6], playerPosY[6] + ChatScrollY, chatSendGraph, TRUE);
+				DrawFormatString(playerPosX[6] + 50, playerPosY[6] + 50 + ChatScrollY, GetColor(0, 0, 0), "はーい！");
 		}
 
 		if (chatSendFlag[7] == TRUE) {

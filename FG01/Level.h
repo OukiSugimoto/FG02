@@ -7,7 +7,7 @@ public:
 	Level();
 	~Level();
 
-	void initialize();
+	void Initialize();
 
 	void Update(char *keys, char* oldkeys);
 

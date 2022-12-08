@@ -2,20 +2,20 @@
 #include"DxLib.h"
 #include"Level.h"
 
-class PlayerChat : public Level
+class PlayerChat4
 {
 public:
-	PlayerChat() {}
-	~PlayerChat(){}
-	
+	PlayerChat4() {}
+	~PlayerChat4() {}
+
 	void Initialize();
-	void Update(char *keys, char* oldkeys);
+	void Update(char* keys, char* oldkeys);
 	void Draw();
 
 	void ChatLike();
 
 	int chatSendFlag[10];
-	
+
 	int chatFalse = 0;
 
 	int clearTimer = 30;
@@ -52,7 +52,7 @@ private:
 	int chatchose = 0;
 
 	int sceneState = 0;
-	
+
 	int Timer = 0;
 
 	int chattime;
@@ -70,5 +70,6 @@ private:
 	int chatChoseFlage = 0;
 
 	int HpAnime = 0;
-	
+
 };
+

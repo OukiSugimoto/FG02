@@ -6,7 +6,7 @@ Level::~Level() {
 	
 }
 
-void Level::initialize() {
+void Level::Initialize() {
 	levelNumber = 4;
 	
 }
@@ -35,7 +35,7 @@ void Level::Draw() {
 	}
 
 	if (levelNumber == 5) {
-		DrawFormatString(180, 30, GetColor(0, 0, 0), "˜A—‘Šè:t“ú");
+		DrawFormatString(180, 30, GetColor(0, 0, 0), "˜A—‘Šè:•ê");
 	}
 	
 	if (levelNumber == 6) {
