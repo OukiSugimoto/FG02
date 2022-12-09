@@ -5,12 +5,10 @@
 #include"PlayerChat2.h"
 #include"PlayerChat3.h"
 #include"PlayerChat4.h"
-#include"PlayerChat5.h"
 #include"EnemyChat.h"
 #include"EnemyChat2.h"
 #include"EnemyChat3.h"
 #include"EnemyChat4.h"
-#include"EnemyChat5.h"
 
 // ウィンドウのタイトルに表示する文字列
 const char TITLE[] = "07_connect mail";
@@ -29,8 +27,7 @@ enum GAMESCENE
 	Level1,
 	Level2,
 	Level3,
-	Level4,
-	Level5
+	Level4
 };
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
@@ -55,6 +52,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	int ruruGraph = LoadGraph("Resource\\ru-ru.png");
 	int kikenGraph = LoadGraph("Resource\\kiken.png");
 
+	int gameBGM = LoadSoundMem("Resource\\BGM.mp3");
+	int kikenBGM = LoadSoundMem("Resource\\keihou.mp3");
+
 	// ゲームループで使う変数の宣言
 	int sceneState = 0;
 
@@ -65,13 +65,13 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	PlayerChat2* playerchat2_ = new PlayerChat2;
 	PlayerChat3* playerchat3_ = new PlayerChat3;
 	PlayerChat4* playerchat4_ = new PlayerChat4;
-	PlayerChat5* playerchat5_ = new PlayerChat5;
+	
 
 	EnemyChat* enemychat_ = new EnemyChat;
 	EnemyChat2* enemychat2_ = new EnemyChat2;
 	EnemyChat3* enemychat3_ = new EnemyChat3;
 	EnemyChat4* enemychat4_ = new EnemyChat4;
-	EnemyChat5* enemychat5_ = new EnemyChat5;
+	
 
 	//タイマー
 	int alpha = 20;
@@ -107,8 +107,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 			playerchat4_->Initialize();
 
-			playerchat5_->Initialize();
-
 			enemychat_->Initialize();
 
 			enemychat2_->Initialize();
@@ -117,13 +115,13 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 			enemychat4_->Initialize();
 
-			enemychat5_->Initialize();
-
 			level_->Initialize();
 
 			alpha = 0;
 
 			DrawGraph(0,0,titleGraph,TRUE);
+			StopSoundMem(kikenBGM);
+			PlaySoundMem(gameBGM, DX_PLAYTYPE_LOOP, FALSE);
 
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
 				sceneState = Ruru;
@@ -188,18 +186,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 				sceneState = Clear;
 			}
 			break;
-		case Level5:
-			playerchat5_->Update(keys, oldkeys);
-
-			enemychat5_->Update(keys, oldkeys);
-
-			if (playerchat5_->chatFalse == 1) {
-				sceneState = End;
-			}
-			if (playerchat5_->chatFalse == 2) {
-				sceneState = Clear;
-			}
-			break;
 		case End:
 			DrawGraph(0, 0, endGraph, TRUE);
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
@@ -261,16 +247,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		}
 
-		if (sceneState == Level5) {
-			talk_->Draw();
-
-			playerchat5_->Draw();
-
-			enemychat5_->Draw();
-
-			DrawGraph(0, 0, backGraph, TRUE);
-
-		}
 
 		if (Level1 <= sceneState) {
 			DrawGraph(18, 69, textGraph, TRUE);
@@ -311,16 +287,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat4_->playerHpPosX[2], playerchat4_->playerHpPosY[2], playerchat4_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat4_->playerHpPosX[3], playerchat4_->playerHpPosY[3], playerchat4_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat4_->playerHpPosX[4], playerchat4_->playerHpPosY[4], playerchat4_->PlayerLifeGraph, TRUE);
-				}
-			}
-			
-			if (sceneState == Level5) {
-				if (playerchat5_->ChatLikePoint == 100) {
-					DrawGraph(playerchat5_->playerHpPosX[0], playerchat5_->playerHpPosY[0], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[1], playerchat5_->playerHpPosY[1], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[2], playerchat5_->playerHpPosY[2], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[3], playerchat5_->playerHpPosY[3], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[4], playerchat5_->playerHpPosY[4], playerchat5_->PlayerLifeGraph, TRUE);
 				}
 			}
 			
@@ -424,31 +390,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat4_->playerHpPosX[4], playerchat4_->playerHpPosY[4], playerchat4_->Animes[playerchat4_->index], TRUE);
 				}
 			}
-			if (sceneState == Level5) {
-				if (playerchat5_->ChatLikePoint == 80) {
-					playerchat5_->AnimeTime++;
-
-					if (playerchat5_->count == 0) {
-
-						if (playerchat5_->AnimeTime >= 7)
-						{
-							playerchat5_->index = (playerchat5_->index + 1) % 7;
-
-							playerchat5_->AnimeTime = 0;
-
-						}
-					}
-					if (playerchat5_->index >= 6) {
-						playerchat5_->count += 1;
-					}
-
-					DrawGraph(playerchat5_->playerHpPosX[0], playerchat5_->playerHpPosY[0], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[1], playerchat5_->playerHpPosY[1], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[2], playerchat5_->playerHpPosY[2], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[3], playerchat5_->playerHpPosY[3], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[4], playerchat5_->playerHpPosY[4], playerchat5_->Animes[playerchat5_->index], TRUE);
-				}
-			}
+			
 			if (sceneState == Level1) {
 				if (playerchat_->ChatLikePoint == 60) {
 					playerchat_->AnimeTime++;
@@ -545,30 +487,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat4_->playerHpPosX[3], playerchat4_->playerHpPosY[3], playerchat4_->Animes[playerchat4_->index], TRUE);
 				}
 			}
-			if (sceneState == Level5) {
-				if (playerchat5_->ChatLikePoint == 60) {
-					playerchat5_->AnimeTime++;
-
-					if (playerchat5_->count == 0) {
-
-						if (playerchat5_->AnimeTime >= 7)
-						{
-							playerchat5_->index = (playerchat5_->index + 1) % 7;
-
-							playerchat5_->AnimeTime = 0;
-
-						}
-					}
-					if (playerchat5_->index >= 6) {
-						playerchat5_->count += 1;
-					}
-
-					DrawGraph(playerchat5_->playerHpPosX[0], playerchat5_->playerHpPosY[0], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[1], playerchat5_->playerHpPosY[1], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[2], playerchat5_->playerHpPosY[2], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[3], playerchat5_->playerHpPosY[3], playerchat5_->Animes[playerchat5_->index], TRUE);
-				}
-			}
+			
 			if (sceneState == Level1) {
 				if (playerchat_->ChatLikePoint == 40) {
 					playerchat_->AnimeTime++;
@@ -661,29 +580,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat4_->playerHpPosX[2], playerchat4_->playerHpPosY[2], playerchat4_->Animes[playerchat4_->index], TRUE);
 				}
 			}
-			if (sceneState == Level5) {
-				if (playerchat5_->ChatLikePoint == 40) {
-					playerchat5_->AnimeTime++;
-
-					if (playerchat5_->count == 0) {
-
-						if (playerchat5_->AnimeTime >= 7)
-						{
-							playerchat5_->index = (playerchat5_->index + 1) % 7;
-
-							playerchat5_->AnimeTime = 0;
-
-						}
-					}
-					if (playerchat5_->index >= 6) {
-						playerchat5_->count += 1;
-					}
-
-					DrawGraph(playerchat5_->playerHpPosX[0], playerchat5_->playerHpPosY[0], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[1], playerchat5_->playerHpPosY[1], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[2], playerchat5_->playerHpPosY[2], playerchat5_->Animes[playerchat5_->index], TRUE);
-				}
-			}
+			
 			if (sceneState == Level1) {
 				if (playerchat_->ChatLikePoint == 20) {
 					playerchat_->AnimeTime++;
@@ -709,6 +606,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					if (alpha >= 120) {
 						alpha = 40;
 					}
+
+					StopSoundMem(gameBGM);
+					PlaySoundMem(kikenBGM, DX_PLAYTYPE_LOOP, FALSE);
 
 					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
 					DrawGraph(18, 69, textGraph, TRUE);
@@ -824,41 +724,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
-			if (sceneState == Level5) {
-				if (playerchat5_->ChatLikePoint == 20) {
-					playerchat5_->AnimeTime++;
-
-					if (playerchat5_->count == 0) {
-						if (playerchat5_->AnimeTime >= 7)
-						{
-							playerchat5_->index = (playerchat5_->index + 1) % 7;
-
-							playerchat5_->AnimeTime = 0;
-
-						}
-					}
-					if (playerchat5_->index >= 6) {
-						playerchat5_->count += 1;
-					}
-
-					DrawGraph(playerchat5_->playerHpPosX[0] + playerchat5_->shakeChat, playerchat5_->playerHpPosY[0], playerchat5_->PlayerLifeGraph, TRUE);
-					DrawGraph(playerchat5_->playerHpPosX[1], playerchat5_->playerHpPosY[1], playerchat5_->Animes[playerchat5_->index], TRUE);
-
-					alpha += 2;
-
-					if (alpha >= 120) {
-						alpha = 40;
-					}
-
-					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
-					DrawGraph(18, 69, textGraph, TRUE);
-					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
-
-					SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
-					DrawGraph(18, 69, kikenGraph, TRUE);
-					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
-				}
-			}
+			
 			if (sceneState == Level1) {
 				if (playerchat_->ChatLikePoint == 0) {
 					DrawGraph(playerchat_->playerHpPosX[0], playerchat_->playerHpPosY[0], playerchat_->Animes[playerchat_->index], TRUE);
@@ -879,11 +745,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat4_->playerHpPosX[0], playerchat4_->playerHpPosY[0], playerchat4_->Animes[playerchat4_->index], TRUE);
 				}
 			}
-			if (sceneState == Level5) {
-				if (playerchat5_->ChatLikePoint == 0) {
-					DrawGraph(playerchat5_->playerHpPosX[0], playerchat5_->playerHpPosY[0], playerchat5_->Animes[playerchat5_->index], TRUE);
-				}
-			}
+			
 			if (sceneState == Level1) {
 				DrawFormatString(390, 80, GetColor(0, 0, 0), "連絡相手:ともだち");
 			}
@@ -896,9 +758,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			if (sceneState == Level4) {
 				DrawFormatString(390, 80, GetColor(0, 0, 0), "連絡相手:ともだち");
 			}
-			if (sceneState == Level5) {
-				DrawFormatString(390, 80, GetColor(0, 0, 0), "連絡相手:ともだち");
-			}
+			
 			
 		}
 		//---------  ここまでにプログラムを記述  ---------//

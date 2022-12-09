@@ -156,13 +156,11 @@
     <ClCompile Include="EnemyChat2.cpp" />
     <ClCompile Include="EnemyChat3.cpp" />
     <ClCompile Include="EnemyChat4.cpp" />
-    <ClCompile Include="EnemyChat5.cpp" />
     <ClCompile Include="PlayerChat.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="PlayerChat2.cpp" />
     <ClCompile Include="PlayerChat3.cpp" />
     <ClCompile Include="PlayerChat4.cpp" />
-    <ClCompile Include="PlayerChat5.cpp" />
     <ClCompile Include="talk.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -171,13 +169,11 @@
     <ClInclude Include="EnemyChat2.h" />
     <ClInclude Include="EnemyChat3.h" />
     <ClInclude Include="EnemyChat4.h" />
-    <ClInclude Include="EnemyChat5.h" />
     <ClInclude Include="PlayerChat.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="PlayerChat2.h" />
     <ClInclude Include="PlayerChat3.h" />
     <ClInclude Include="PlayerChat4.h" />
-    <ClInclude Include="PlayerChat5.h" />
     <ClInclude Include="talk.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -147,7 +147,7 @@ void EnemyChat2::Draw() {
 
     if (chatReceponFlag[4] == TRUE) {
         DrawGraph(enemyPosX[4], enemyPosY[4] + ChatScrollY, chatReceponGraph, TRUE);
-        DrawFormatString(enemyPosX[4] + 50, enemyPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "В╗ВёВ╚В╔ЛxВёВ╢Вс\nВ╛В▀БH");
+        DrawFormatString(enemyPosX[4] + 50, enemyPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "В╗ВёВ╚В╔ЛxВёВ╢Вс\nВ╛В▀БH?");
     }
 
 }

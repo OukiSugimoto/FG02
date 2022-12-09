@@ -67,6 +67,8 @@ private:
 
 	int chatSelectGraph = LoadGraph("Resource\\text_small.png");
 
+	int chatFalseSe = LoadSoundMem("Resource\\fuseikai.mp3", 6);
+
 	int chatChoseFlage = 0;
 
 	int HpAnime = 0;

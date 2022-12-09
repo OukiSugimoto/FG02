@@ -14,15 +14,15 @@ void Level::Initialize() {
 void Level::Update(char* keys, char* oldkeys) {
 	if (keys[KEY_INPUT_DOWN] == TRUE && oldkeys[KEY_INPUT_DOWN] == FALSE) {
 		levelNumber--;
-		if (levelNumber <= 3) {
-			levelNumber = 3;
+		if (levelNumber <= 4) {
+			levelNumber = 4;
 		}
 	}
 
 	if (keys[KEY_INPUT_UP] == TRUE && oldkeys[KEY_INPUT_UP] == FALSE) {
 		levelNumber++;
-		if (levelNumber >= 8) {
-			levelNumber = 8;
+		if (levelNumber >= 7) {
+			levelNumber = 7;
 		}
 	}
 }

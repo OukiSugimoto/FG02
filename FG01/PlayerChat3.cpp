@@ -63,6 +63,8 @@ void PlayerChat3::ChatLike() {
 
 	ChatLikePoint -= 20;
 
+	PlaySoundMem(chatFalseSe, DX_PLAYTYPE_BACK, FALSE);
+
 	if (ChatLikePoint == 0) {
 		chatFalse = 1;
 	}
@@ -111,9 +113,7 @@ void PlayerChat3::Update(char* keys, char* oldkeys) {
 
 	if (chatSendCount == 1) {
 
-
 		chatAnser = 3;
-
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -123,17 +123,14 @@ void PlayerChat3::Update(char* keys, char* oldkeys) {
 			chatSendCount += 1;
 		}
 
-
 		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
 			ChatLike();
 		}
-
 
 	}
 
 	if (chatSendCount == 2) {
 		chatAnser = 2;
-
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -147,12 +144,10 @@ void PlayerChat3::Update(char* keys, char* oldkeys) {
 			ChatLike();
 		}
 
-
 	}
 
 	if (chatSendCount == 3) {
 		chatAnser = 3;
-
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -174,7 +169,6 @@ void PlayerChat3::Update(char* keys, char* oldkeys) {
 
 		chatAnser = 4;
 
-
 		if (chatchose == chatAnser) {
 			count = 1;
 
@@ -187,11 +181,9 @@ void PlayerChat3::Update(char* keys, char* oldkeys) {
 			chatFalse = 2;
 		}
 
-
 		if (chatchose == 2 || chatchose == 3 || chatchose == 1) {
 			ChatLike();
 		}
-
 
 	}
 }
@@ -210,22 +202,18 @@ void PlayerChat3::Draw() {
 	if (chatSendFlag[0] == TRUE) {
 		DrawGraph(playerPosX[0], playerPosY[0] + ChatScrollY, chatSendGraph, TRUE);
 		DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç»Ç…ÅH");
-
 	}
 
 	if (chatSendFlag[1] == TRUE) {
 		DrawGraph(playerPosX[1], playerPosY[1] + ChatScrollY, chatSendGraph, TRUE);
 
 		DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç¢Ç¢ÇÊ");
-
 	}
 
 	if (chatSendFlag[2] == TRUE) {
 		DrawGraph(playerPosX[2], playerPosY[2] + ChatScrollY, chatSendGraph, TRUE);
 
 		DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç§ÇÒ");
-
-
 	}
 
 	if (chatSendFlag[3] == TRUE) {
@@ -238,14 +226,11 @@ void PlayerChat3::Draw() {
 		DrawGraph(playerPosX[4], playerPosY[4] + ChatScrollY, chatSendGraph, TRUE);
 
 		DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç∂Ç·Ç™Ç¢Ç‡Ç∆");
-
-
 	}
 
 	if (chatSendFlag[5] == TRUE) {
 		DrawGraph(playerPosX[5], playerPosY[5] + ChatScrollY, chatSendGraph, TRUE);
 		DrawFormatString(playerPosX[5] + 50, playerPosY[5] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç…ÇÒÇ∂ÇÒÇ∆ÉJÉåÅ[ï≤");
-
 	}
 
 	if (chatSendFlag[6] == TRUE) {
