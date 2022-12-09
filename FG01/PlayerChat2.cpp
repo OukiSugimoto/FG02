@@ -95,7 +95,7 @@ void PlayerChat2::Update(char* keys, char* oldkeys) {
 	}
 
 	if (chatSendCount == 0) {
-		chatAnser = 1;
+		chatAnser = 2;
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -106,7 +106,7 @@ void PlayerChat2::Update(char* keys, char* oldkeys) {
 
 		}
 
-		if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
+		if (chatchose == 1 || chatchose == 3 || chatchose == 4) {
 			ChatLike();
 		}
 
@@ -115,7 +115,7 @@ void PlayerChat2::Update(char* keys, char* oldkeys) {
 	if (chatSendCount == 1) {
 
 
-		chatAnser = 3;
+		chatAnser = 4;
 
 
 		if (chatchose == chatAnser) {
@@ -127,7 +127,7 @@ void PlayerChat2::Update(char* keys, char* oldkeys) {
 		}
 
 
-		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
+		if (chatchose == 2 || chatchose == 1 || chatchose == 3) {
 			ChatLike();
 		}
 
@@ -135,7 +135,7 @@ void PlayerChat2::Update(char* keys, char* oldkeys) {
 	}
 
 	if (chatSendCount == 2) {
-		chatAnser = 2;
+		chatAnser = 3;
 
 
 		if (chatchose == chatAnser) {
@@ -146,7 +146,7 @@ void PlayerChat2::Update(char* keys, char* oldkeys) {
 			chatSendCount += 1;
 		}
 
-		if (chatchose == 1 || chatchose == 3 || chatchose == 4) {
+		if (chatchose == 1 || chatchose == 2 || chatchose == 4) {
 			ChatLike();
 		}
 
@@ -154,7 +154,7 @@ void PlayerChat2::Update(char* keys, char* oldkeys) {
 	}
 
 	if (chatSendCount == 3) {
-		chatAnser = 3;
+		chatAnser = 2;
 
 
 		if (chatchose == chatAnser) {
@@ -167,7 +167,7 @@ void PlayerChat2::Update(char* keys, char* oldkeys) {
 			ChatScrollY -= 50;
 		}
 
-		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
+		if (chatchose == 3 || chatchose == 1 || chatchose == 4) {
 			ChatLike();
 		}
 
@@ -175,7 +175,7 @@ void PlayerChat2::Update(char* keys, char* oldkeys) {
 
 	if (chatSendCount == 4) {
 
-		chatAnser = 4;
+		chatAnser = 3;
 
 
 		if (chatchose == chatAnser) {
@@ -187,11 +187,57 @@ void PlayerChat2::Update(char* keys, char* oldkeys) {
 			ChatScrollY -= 50;
 			chatchose = 0;
 
-			chatFalse = 2;
+		}
+
+
+		if (chatchose == 2 || chatchose == 4 || chatchose == 1) {
+			ChatLike();
+		}
+
+
+	}
+	if (chatSendCount == 5) {
+
+		chatAnser = 4;
+
+
+		if (chatchose == chatAnser) {
+			count = 1;
+
+			chatSendFlag[5] = TRUE;
+			chatSendCount += 1;
+			chatChoseFlage = 5;
+			ChatScrollY -= 50;
+			chatchose = 0;
+
 		}
 
 
 		if (chatchose == 2 || chatchose == 3 || chatchose == 1) {
+			ChatLike();
+		}
+
+
+	}
+	if (chatSendCount == 6) {
+
+		chatAnser = 1;
+
+
+		if (chatchose == chatAnser) {
+			count = 1;
+
+			chatSendFlag[6] = TRUE;
+			chatSendCount += 1;
+			chatChoseFlage = 5;
+			ChatScrollY -= 50;
+			chatchose = 0;
+
+			chatFalse == 2;
+		}
+
+
+		if (chatchose == 2 || chatchose == 4 || chatchose == 3) {
 			ChatLike();
 		}
 
@@ -269,37 +315,51 @@ void PlayerChat2::Draw() {
 	}
 
 	if (chatChoseFlage == 0) {
-		DrawFormatString(68, 650, GetColor(0, 0, 0), "どうした？");
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "やだ");
 		DrawFormatString(350, 650, GetColor(0, 0, 0), "なに？");
-		DrawFormatString(68, 750, GetColor(0, 0, 0), "a");
-		DrawFormatString(350, 750, GetColor(0, 0, 0), "ありがとう");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "why？");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "おーけー");
 	}
 
 	if (chatChoseFlage == 1) {
-		DrawFormatString(68, 650, GetColor(0, 0, 0), "おやすみ～");
-		DrawFormatString(350, 650, GetColor(0, 0, 0), "おかえり");
-		DrawFormatString(68, 750, GetColor(0, 0, 0), "はやくこい!");
-		DrawFormatString(350, 750, GetColor(0, 0, 0), "はくやこい!");
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "あんたが行けよ");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "むり");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "じゃ、行ってくるー");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "いいよ");
 	}
 
 	if (chatChoseFlage == 2) {
-		DrawFormatString(68, 650, GetColor(0, 0, 0), "そうすれば？");
-		DrawFormatString(350, 650, GetColor(0, 0, 0), "だめ!");
-		DrawFormatString(68, 750, GetColor(0, 0, 0), "ok!");
-		DrawFormatString(350, 750, GetColor(0, 0, 0), "いただきます");
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "じゃいがもと？");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "むり");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "じゃがいも？");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "うん");
 	}
 
 	if (chatChoseFlage == 3) {
-		DrawFormatString(68, 650, GetColor(0, 0, 0), "おはよう!");
-		DrawFormatString(350, 650, GetColor(0, 0, 0), "寂しい");
-		DrawFormatString(68, 750, GetColor(0, 0, 0), "まだ間に合うよ");
-		DrawFormatString(350, 750, GetColor(0, 0, 0), "おやすみ～");
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "むり");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "わかった");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "むりだと思う");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "むりかも");
 	}
 
 	if (chatChoseFlage == 4) {
-		DrawFormatString(68, 650, GetColor(0, 0, 0), "おやすみ～");
-		DrawFormatString(350, 650, GetColor(0, 0, 0), "ごちそうさま");
-		DrawFormatString(68, 750, GetColor(0, 0, 0), "ok!");
-		DrawFormatString(350, 750, GetColor(0, 0, 0), "絶対だめ!");
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "じゃいがもと");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "じゃいあんと");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "じゃがいもと");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "じゃがりこと");
+	}
+
+	if (chatChoseFlage == 5) {
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "にんじんとぶたにく");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "ぶたにくとカレー粉");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "ぶたばことカレー粉");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "にんじんとカレー粉");
+	}
+
+	if (chatChoseFlage == 6) {
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "はーい");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "むりかも");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "はーまいおにー");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "いいえ");
 	}
 }
