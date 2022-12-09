@@ -123,12 +123,10 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatSendCount += 1;
 		}
 
-		
 		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
 			ChatLike();
 		}
 		
-
 	}
 	
 	if (chatSendCount == 2) {
@@ -147,13 +145,11 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			ChatLike();
 		}
 		
-
 	}
 
 	if (chatSendCount == 3) {
 		chatAnser = 3;
 		
-
 		if (chatchose == chatAnser) {
 			count = 1;
 			chatchose = 0;
@@ -187,7 +183,6 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 			chatFalse = 2;
 		}
 
-		
 		if (chatchose == 2 || chatchose == 3 || chatchose == 1) {
 			ChatLike();
 		}
@@ -228,7 +223,7 @@ void PlayerChat::Draw(){
 		if (chatSendFlag[3] == TRUE) {
 			DrawGraph(playerPosX[3], playerPosY[3] + ChatScrollY, chatSendGraph, TRUE);
 		
-			DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "	Ç‹Çæä‘Ç…çáÇ§ÇÊ");
+			DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç‹Çæä‘Ç…çáÇ§ÇÊ");
 		}
 
 		if (chatSendFlag[4] == TRUE) {

@@ -273,6 +273,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		}
 
 		if (Level1 <= sceneState) {
+			DrawGraph(18, 69, textGraph, TRUE);
 			if (sceneState == Level1) {
 				if (playerchat_->ChatLikePoint == 100) {
 					DrawGraph(playerchat_->playerHpPosX[0], playerchat_->playerHpPosY[0], playerchat_->PlayerLifeGraph, TRUE);
