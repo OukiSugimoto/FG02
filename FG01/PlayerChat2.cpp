@@ -206,8 +206,8 @@ void PlayerChat2::Update(char* keys, char* oldkeys) {
 
 			chatSendFlag[5] = TRUE;
 			chatSendCount += 1;
-			chatChoseFlage = 5;
-			ChatScrollY -= 50;
+			chatChoseFlage = 6;
+			ChatScrollY -= 100;
 			chatchose = 0;
 
 		}
@@ -223,17 +223,16 @@ void PlayerChat2::Update(char* keys, char* oldkeys) {
 
 		chatAnser = 1;
 
-
 		if (chatchose == chatAnser) {
 			count = 1;
 
 			chatSendFlag[6] = TRUE;
 			chatSendCount += 1;
-			chatChoseFlage = 5;
-			ChatScrollY -= 50;
+			chatChoseFlage = 7;
+			ChatScrollY -= 100;
 			chatchose = 0;
 
-			chatFalse == 2;
+			chatFalse = 2;
 		}
 
 
@@ -331,8 +330,8 @@ void PlayerChat2::Draw() {
 	if (chatChoseFlage == 2) {
 		DrawFormatString(68, 650, GetColor(0, 0, 0), "Ç∂Ç·Ç¢Ç™Ç‡Ç∆ÅH");
 		DrawFormatString(350, 650, GetColor(0, 0, 0), "ÇﬁÇË");
-		DrawFormatString(68, 750, GetColor(0, 0, 0), "Ç∂Ç·Ç™Ç¢Ç‡ÅH");
-		DrawFormatString(350, 750, GetColor(0, 0, 0), "Ç§ÇÒ");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "Ç§ÇÒ");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "Ç∂Ç·Ç™Ç¢Ç‡ÅH");
 	}
 
 	if (chatChoseFlage == 3) {

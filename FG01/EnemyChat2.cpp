@@ -72,7 +72,7 @@ void EnemyChat2::Update(char* keys, char* oldkeys) {
     }
 
     if (chatReceponCount == 0) {
-        chatAnser = 1;
+        chatAnser = 2;
         if (chatchose == chatAnser) {
             PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
             chatReceponFlag[1] = TRUE;
@@ -82,7 +82,7 @@ void EnemyChat2::Update(char* keys, char* oldkeys) {
     }
 
     if (chatReceponCount == 1) {
-        chatAnser = 3;
+        chatAnser = 4;
         if (chatchose == chatAnser) {
             PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
             chatReceponFlag[2] = TRUE;
@@ -92,7 +92,7 @@ void EnemyChat2::Update(char* keys, char* oldkeys) {
     }
 
     if (chatReceponCount == 2) {
-        chatAnser = 2;
+        chatAnser = 3;
         if (chatchose == chatAnser) {
             PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
             chatReceponFlag[3] = TRUE;
@@ -101,7 +101,7 @@ void EnemyChat2::Update(char* keys, char* oldkeys) {
     }
 
     if (chatReceponCount == 3) {
-        chatAnser = 3;
+        chatAnser = 2;
         if (chatchose == chatAnser) {
             PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
             chatReceponFlag[4] = TRUE;
@@ -112,7 +112,7 @@ void EnemyChat2::Update(char* keys, char* oldkeys) {
     }
 
     if (chatReceponCount == 4) {
-        chatAnser = 4;
+        chatAnser = 3;
         if (chatchose == chatAnser) {
             PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
             chatReceponFlag[5] = TRUE;
@@ -121,33 +121,66 @@ void EnemyChat2::Update(char* keys, char* oldkeys) {
             ChatScrollY -= 50;
         }
     }
+
+    if (chatReceponCount == 5) {
+        chatAnser = 4;
+        if (chatchose == chatAnser) {
+            PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
+            chatReceponFlag[6] = TRUE;
+            chatReceponCount += 1;
+
+            ChatScrollY -= 100;
+        }
+    }
+
+    if (chatReceponCount == 6) {
+        chatAnser = 1;
+        if (chatchose == chatAnser) {
+            PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
+            chatReceponFlag[7] = TRUE;
+            chatReceponCount += 1;
+
+            chatFalse = 2;
+
+            ChatScrollY -= 100;
+        }
+    }
 }
 
 void EnemyChat2::Draw() {
 
     if (chatReceponFlag[0] == TRUE) {
         DrawGraph(enemyPosX[0], enemyPosY[0] + ChatScrollY, chatReceponGraph, TRUE);
-        DrawFormatString(enemyPosX[0] + 50, enemyPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç®Ç¬Ç©Ç¢óäÇ›ÇΩÇ¢");
+        DrawFormatString(enemyPosX[0] + 50, enemyPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç†ÇÃÇ≥Å[");
     }
 
     if (chatReceponFlag[1] == TRUE) {
         DrawGraph(enemyPosX[1], enemyPosY[1] + ChatScrollY, chatReceponGraph, TRUE);
-        DrawFormatString(enemyPosX[1] + 50, enemyPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "êQñVÇµÇøÇ·Ç¡ÇΩ");
+        DrawFormatString(enemyPosX[1] + 50, enemyPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç®Ç¬Ç©Ç¢óäÇ›ÇΩÇ¢");
     }
 
     if (chatReceponFlag[2] == TRUE) {
         DrawGraph(enemyPosX[2], enemyPosY[2] + ChatScrollY, chatReceponGraph, TRUE);
-        DrawFormatString(enemyPosX[2] + 50, enemyPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç‡Ç§ãxÇ‡Ç§Ç©Ç»");
+        DrawFormatString(enemyPosX[2] + 50, enemyPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç∂Ç·Ç™Ç¢Ç‡Ç∆");
     }
 
     if (chatReceponFlag[3] == TRUE) {
         DrawGraph(enemyPosX[3], enemyPosY[3] + ChatScrollY, chatReceponGraph, TRUE);
-        DrawFormatString(enemyPosX[3] + 50, enemyPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇﬂÇÒÇ«Ç≠Ç≥Ç¢ÇÊÅ`");
+        DrawFormatString(enemyPosX[3] + 50, enemyPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç…ÇÒÇ∂ÇÒÇ∆ÉJÉåÅ[\nï≤ÇÇ®äËÇ¢ÅI");
     }
 
     if (chatReceponFlag[4] == TRUE) {
         DrawGraph(enemyPosX[4], enemyPosY[4] + ChatScrollY, chatReceponGraph, TRUE);
-        DrawFormatString(enemyPosX[4] + 50, enemyPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇªÇÒÇ»Ç…ãxÇÒÇ∂Ç·\nÇæÇﬂÅH?");
+        DrawFormatString(enemyPosX[4] + 50, enemyPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "àÍâÒîÉÇ§Ç‡ÇÃ\nÇåæÇ¡ÇƒÇ›Çƒ");
     }
 
+    if (chatReceponFlag[5] == TRUE) {
+        DrawGraph(enemyPosX[5], enemyPosY[5] + ChatScrollY, chatReceponGraph, TRUE);
+        DrawFormatString(enemyPosX[5] + 50, enemyPosY[5] + 50 + ChatScrollY, GetColor(0, 0, 0), "Ç∂Ç·Ç™Ç¢Ç‡Ç∆ÅH");
+    }
+
+    if (chatReceponFlag[6] == TRUE) {
+        DrawGraph(enemyPosX[6], enemyPosY[6] + ChatScrollY, chatReceponGraph, TRUE);
+        DrawFormatString(enemyPosX[6] + 50, enemyPosY[6] + 50 + ChatScrollY, GetColor(0, 0, 0), "ê≥âÅIÇ∂Ç·Ç†\nÇÊÇÎÇµÇ≠ÇÀÅ@");
+    }
 }
