@@ -31,22 +31,18 @@ void Level::Draw() {
 	DrawFormatString(80, 250, GetColor(0, 0, 0), "level = %d", levelNumber - 3);
 
 	if (levelNumber == 4) {
-		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡相手:ともだち");
+		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡内容:寝坊した友へ");
 	}
 
 	if (levelNumber == 5) {
-		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡相手:母");
+		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡内容:おつかい");
 	}
 	
 	if (levelNumber == 6) {
-		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡相手:ヘリオス");
+		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡内容:デートの誘い");
 	}
 
 	if (levelNumber == 7) {
-		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡相手:ジョイボーイ");
-	}
-
-	if (levelNumber == 8) {
-		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡相手:カイドウ");
+		DrawFormatString(180, 30, GetColor(0, 0, 0), "連絡内容:待ち合わせ");
 	}
 }

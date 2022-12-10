@@ -194,6 +194,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			break;
 
 		case Clear:
+			StopSoundMem(kikenBGM);
+			PlaySoundMem(gameBGM, DX_PLAYTYPE_LOOP, FALSE);
+
 			DrawGraph(0, 0, clearGraph, TRUE);
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
 				sceneState = Title;
@@ -645,6 +648,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 						alpha = 40;
 					}
 
+					StopSoundMem(gameBGM);
+					PlaySoundMem(kikenBGM, DX_PLAYTYPE_LOOP, FALSE);
+
 					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
 					DrawGraph(18, 69, textGraph, TRUE);
 					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
@@ -680,6 +686,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 						alpha = 40;
 					}
 
+					StopSoundMem(gameBGM);
+					PlaySoundMem(kikenBGM, DX_PLAYTYPE_LOOP, FALSE);
+
 					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
 					DrawGraph(18, 69, textGraph, TRUE);
 					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
@@ -714,6 +723,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					if (alpha >= 120) {
 						alpha = 40;
 					}
+
+					StopSoundMem(gameBGM);
+					PlaySoundMem(kikenBGM, DX_PLAYTYPE_LOOP, FALSE);
 
 					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
 					DrawGraph(18, 69, textGraph, TRUE);
@@ -753,10 +765,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 				DrawFormatString(390, 80, GetColor(0, 0, 0), "連絡相手:母");
 			}
 			if (sceneState == Level3) {
-				DrawFormatString(390, 80, GetColor(0, 0, 0), "連絡相手:ともだち");
+				DrawFormatString(390, 80, GetColor(0, 0, 0), "連絡相手:恋人");
 			}
 			if (sceneState == Level4) {
-				DrawFormatString(390, 80, GetColor(0, 0, 0), "連絡相手:ともだち");
+				DrawFormatString(390, 80, GetColor(0, 0, 0), "連絡相手:恋人");
 			}
 			
 			

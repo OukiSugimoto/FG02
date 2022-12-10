@@ -105,6 +105,8 @@ void EnemyChat2::Update(char* keys, char* oldkeys) {
         if (chatchose == chatAnser) {
             PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
             chatReceponFlag[4] = TRUE;
+            chatReceponFlag[3] = FALSE;
+            chatReceponFlag[2] = FALSE;
             chatReceponCount += 1;
 
             ChatScrollY -= 50;

@@ -113,9 +113,7 @@ void PlayerChat4::Update(char* keys, char* oldkeys) {
 
 	if (chatSendCount == 1) {
 
-
 		chatAnser = 3;
-
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -125,17 +123,14 @@ void PlayerChat4::Update(char* keys, char* oldkeys) {
 			chatSendCount += 1;
 		}
 
-
 		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
 			ChatLike();
 		}
-
 
 	}
 
 	if (chatSendCount == 2) {
 		chatAnser = 2;
-
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -153,7 +148,7 @@ void PlayerChat4::Update(char* keys, char* oldkeys) {
 	}
 
 	if (chatSendCount == 3) {
-		chatAnser = 3;
+		chatAnser = 1;
 
 
 		if (chatchose == chatAnser) {
@@ -166,7 +161,7 @@ void PlayerChat4::Update(char* keys, char* oldkeys) {
 			ChatScrollY -= 50;
 		}
 
-		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
+		if (chatchose == 2 || chatchose == 3 || chatchose == 4) {
 			ChatLike();
 		}
 
@@ -175,7 +170,6 @@ void PlayerChat4::Update(char* keys, char* oldkeys) {
 	if (chatSendCount == 4) {
 
 		chatAnser = 4;
-
 
 		if (chatchose == chatAnser) {
 			count = 1;
@@ -186,11 +180,33 @@ void PlayerChat4::Update(char* keys, char* oldkeys) {
 			ChatScrollY -= 50;
 			chatchose = 0;
 
-			chatFalse = 2;
 		}
 
 
 		if (chatchose == 2 || chatchose == 3 || chatchose == 1) {
+			ChatLike();
+		}
+
+	}
+
+	if (chatSendCount == 5) {
+
+		chatAnser = 2;
+
+		if (chatchose == chatAnser) {
+			count = 1;
+
+			chatSendFlag[5] = TRUE;
+			chatSendCount += 1;
+			chatChoseFlage = 6;
+			ChatScrollY -= 50;
+			chatchose = 0;
+
+			chatFalse = 2;
+		}
+
+
+		if (chatchose == 4 || chatchose == 3 || chatchose == 1) {
 			ChatLike();
 		}
 
@@ -211,94 +227,82 @@ void PlayerChat4::Draw() {
 
 	if (chatSendFlag[0] == TRUE) {
 		DrawGraph(playerPosX[0], playerPosY[0] + ChatScrollY, chatSendGraph, TRUE);
-		DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "なに？");
+		DrawFormatString(playerPosX[0] + 50, playerPosY[0] + 50 + ChatScrollY, GetColor(0, 0, 0), "ごめん、もうちょい");
 
 	}
 
 	if (chatSendFlag[1] == TRUE) {
 		DrawGraph(playerPosX[1], playerPosY[1] + ChatScrollY, chatSendGraph, TRUE);
 
-		DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "いいよ");
+		DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "ありがとー");
 
 	}
 
 	if (chatSendFlag[2] == TRUE) {
 		DrawGraph(playerPosX[2], playerPosY[2] + ChatScrollY, chatSendGraph, TRUE);
 
-		DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "うん");
-
+		DrawFormatString(playerPosX[2] + 50, playerPosY[2] + 50 + ChatScrollY, GetColor(0, 0, 0), "あーごめん、\nまだかも");
 
 	}
 
 	if (chatSendFlag[3] == TRUE) {
 		DrawGraph(playerPosX[3], playerPosY[3] + ChatScrollY, chatSendGraph, TRUE);
 
-		DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "わかった！");
+		DrawFormatString(playerPosX[3] + 50, playerPosY[3] + 50 + ChatScrollY, GetColor(0, 0, 0), "まだ気づかないのww");
 	}
 
 	if (chatSendFlag[4] == TRUE) {
 		DrawGraph(playerPosX[4], playerPosY[4] + ChatScrollY, chatSendGraph, TRUE);
 
-		DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "じゃがいもと");
-
-
+		DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "映画行くの\n明日だよ？");
 	}
 
 	if (chatSendFlag[5] == TRUE) {
 		DrawGraph(playerPosX[5], playerPosY[5] + ChatScrollY, chatSendGraph, TRUE);
-		DrawFormatString(playerPosX[5] + 50, playerPosY[5] + 50 + ChatScrollY, GetColor(0, 0, 0), "にんじんとカレー粉");
+		DrawFormatString(playerPosX[5] + 50, playerPosY[5] + 50 + ChatScrollY, GetColor(0, 0, 0), "じゃーまた明日ねー");
 
 	}
 
-	if (chatSendFlag[6] == TRUE) {
-		DrawGraph(playerPosX[6], playerPosY[6] + ChatScrollY, chatSendGraph, TRUE);
-		DrawFormatString(playerPosX[6] + 50, playerPosY[6] + 50 + ChatScrollY, GetColor(0, 0, 0), "はーい！");
-	}
-
-	if (chatSendFlag[7] == TRUE) {
-		DrawGraph(playerPosX[7], playerPosY[7] + ChatScrollY, chatSendGraph, TRUE);
-	}
-
-	if (chatSendFlag[8] == TRUE) {
-		DrawGraph(playerPosX[8], playerPosY[8] + ChatScrollY, chatSendGraph, TRUE);
-	}
-
-	if (chatSendFlag[9] == TRUE) {
-		DrawGraph(playerPosX[9], playerPosY[9] + ChatScrollY, chatSendGraph, TRUE);
-	}
 
 	if (chatChoseFlage == 0) {
-		DrawFormatString(68, 650, GetColor(0, 0, 0), "どうした？");
-		DrawFormatString(350, 650, GetColor(0, 0, 0), "なに？");
-		DrawFormatString(68, 750, GetColor(0, 0, 0), "a");
-		DrawFormatString(350, 750, GetColor(0, 0, 0), "ありがとう");
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "ごめん、もうちょい");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "今起きた");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "もうつくよ！");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "うん、楽しみ");
 	}
 
 	if (chatChoseFlage == 1) {
-		DrawFormatString(68, 650, GetColor(0, 0, 0), "おやすみ～");
-		DrawFormatString(350, 650, GetColor(0, 0, 0), "おかえり");
-		DrawFormatString(68, 750, GetColor(0, 0, 0), "はやくこい!");
-		DrawFormatString(350, 750, GetColor(0, 0, 0), "はくやこい!");
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "ごめんねm(__)m");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "楽しみだね");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "ありがとー");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "うん！！");
 	}
 
 	if (chatChoseFlage == 2) {
-		DrawFormatString(68, 650, GetColor(0, 0, 0), "そうすれば？");
-		DrawFormatString(350, 650, GetColor(0, 0, 0), "だめ!");
-		DrawFormatString(68, 750, GetColor(0, 0, 0), "ok!");
-		DrawFormatString(350, 750, GetColor(0, 0, 0), "いただきます");
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "いまついた！！");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "あーごめん、\nまだかも");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "今日映画なの？");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "今日何見る？");
 	}
 
 	if (chatChoseFlage == 3) {
-		DrawFormatString(68, 650, GetColor(0, 0, 0), "おはよう!");
-		DrawFormatString(350, 650, GetColor(0, 0, 0), "寂しい");
-		DrawFormatString(68, 750, GetColor(0, 0, 0), "まだ間に合うよ");
-		DrawFormatString(350, 750, GetColor(0, 0, 0), "おやすみ～");
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "まだ気づかないのww");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "おもしろかった？");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "ごめん、\nそろそろつく！！");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "何の映画見た？");
 	}
 
 	if (chatChoseFlage == 4) {
-		DrawFormatString(68, 650, GetColor(0, 0, 0), "おやすみ～");
-		DrawFormatString(350, 650, GetColor(0, 0, 0), "ごちそうさま");
-		DrawFormatString(68, 750, GetColor(0, 0, 0), "ok!");
-		DrawFormatString(350, 750, GetColor(0, 0, 0), "絶対だめ!");
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "一人で見れば\nよかったのに");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "うしろ見てみて");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "え？");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "映画行くの\n明日だよ？");
+	}
+
+	if (chatChoseFlage == 5) {
+		DrawFormatString(68, 650, GetColor(0, 0, 0), "楽しかった？");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "じゃーまた明日ねー");
+		DrawFormatString(68, 750, GetColor(0, 0, 0), "嘘だよ");
+		DrawFormatString(350, 750, GetColor(0, 0, 0), "うしろうしろ");
 	}
 }
