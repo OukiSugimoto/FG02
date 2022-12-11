@@ -54,7 +54,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	int gameBGM = LoadSoundMem("Resource\\BGM.mp3");
 	int kikenBGM = LoadSoundMem("Resource\\keihou.mp3");
-
+	int clearBGM = LoadSoundMem("Resource\\omedetou.mp3");
 	// ゲームループで使う変数の宣言
 	int sceneState = 0;
 
@@ -120,8 +120,13 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			alpha = 0;
 
 			DrawGraph(0,0,titleGraph,TRUE);
+
 			StopSoundMem(kikenBGM);
-			PlaySoundMem(gameBGM, DX_PLAYTYPE_LOOP, FALSE);
+			StopSoundMem(clearBGM);
+		
+			if (CheckSoundMem(gameBGM) == 0) {
+				PlaySoundMem(gameBGM, DX_PLAYTYPE_LOOP, TRUE);
+			}
 
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
 				sceneState = Ruru;
@@ -195,7 +200,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		case Clear:
 			StopSoundMem(kikenBGM);
-			PlaySoundMem(gameBGM, DX_PLAYTYPE_LOOP, FALSE);
+			StopSoundMem(gameBGM);
+			if (CheckSoundMem(clearBGM) == 0) {
+				PlaySoundMem(clearBGM, DX_PLAYTYPE_BACK, TRUE);
+			}
+			
 
 			DrawGraph(0, 0, clearGraph, TRUE);
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {

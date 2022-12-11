@@ -75,7 +75,9 @@ void EnemyChat3::Update(char* keys, char* oldkeys) {
     if (chatReceponCount == 0) {
         chatAnser = 4;
         if (chatchose == chatAnser) {
-            PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
+            if (CheckSoundMem(chatReceponSe) == 0) {
+                PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, TRUE);
+            }
             chatReceponFlag[1] = TRUE;
             chatReceponCount += 1;
         }
@@ -85,7 +87,9 @@ void EnemyChat3::Update(char* keys, char* oldkeys) {
     if (chatReceponCount == 1) {
         chatAnser = 2;
         if (chatchose == chatAnser) {
-            PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
+            if (CheckSoundMem(chatReceponSe) == 0) {
+                PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, TRUE);
+            }
             chatReceponFlag[2] = TRUE;
             chatReceponCount += 1;
         }
@@ -95,7 +99,9 @@ void EnemyChat3::Update(char* keys, char* oldkeys) {
     if (chatReceponCount == 2) {
         chatAnser = 3;
         if (chatchose == chatAnser) {
-            PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
+            if (CheckSoundMem(chatReceponSe) == 0) {
+                PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, TRUE);
+            }
             chatReceponFlag[3] = TRUE;
             chatReceponCount += 1;
         }
@@ -104,7 +110,9 @@ void EnemyChat3::Update(char* keys, char* oldkeys) {
     if (chatReceponCount == 3) {
         chatAnser = 1;
         if (chatchose == chatAnser) {
-            PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
+            if (CheckSoundMem(chatReceponSe) == 0) {
+                PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, TRUE);
+            }
             chatReceponFlag[4] = TRUE;
             chatReceponCount += 1;
 
@@ -115,7 +123,9 @@ void EnemyChat3::Update(char* keys, char* oldkeys) {
     if (chatReceponCount == 4) {
         chatAnser = 2;
         if (chatchose == chatAnser) {
-            PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, FALSE);
+            if (CheckSoundMem(chatReceponSe) == 0) {
+                PlaySoundMem(chatReceponSe, DX_PLAYTYPE_BACK, TRUE);
+            }
             chatReceponFlag[5] = TRUE;
             chatReceponCount += 1;
 

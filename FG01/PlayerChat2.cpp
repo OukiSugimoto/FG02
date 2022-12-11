@@ -64,7 +64,9 @@ void PlayerChat2::ChatLike() {
 
 	ChatLikePoint -= 20;
 
-	PlaySoundMem(chatFalseSe, DX_PLAYTYPE_BACK, FALSE);
+	if (CheckSoundMem(chatFalseSe) == 0) {
+		PlaySoundMem(chatFalseSe, DX_PLAYTYPE_BACK, TRUE);
+	}
 
 	if (ChatLikePoint == 0) {
 		chatFalse = 1;
