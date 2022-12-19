@@ -345,7 +345,7 @@ void PlayerChat2::Draw() {
 
 	if (chatChoseFlage == 4) {
 		DrawFormatString(68, 650, GetColor(0, 0, 0), "‚½‚Ü‚Ë‚¬‚Æ");
-		DrawFormatString(350, 650, GetColor(0, 0, 0), "‚¶‚á‚¢‚ ‚ñ‚Æ");
+		DrawFormatString(350, 650, GetColor(0, 0, 0), "‚¶‚á‚¢‚ª‚à‚Æ");
 		DrawFormatString(68, 750, GetColor(0, 0, 0), "‚¶‚á‚ª‚¢‚à‚Æ");
 		DrawFormatString(350, 750, GetColor(0, 0, 0), "‚¶‚á‚ª‚è‚±‚Æ");
 	}

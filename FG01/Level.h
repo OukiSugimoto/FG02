@@ -15,7 +15,7 @@ public:
 
 	int levelNumber = 4;
 private:
-	
+	int alpha = 0;
 
 };
 

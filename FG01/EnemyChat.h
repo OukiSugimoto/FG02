@@ -25,7 +25,7 @@ private:
 	char keys[256] = { 0 };   // 最新のキーボード情報用
 	char oldkeys[256] = { 0 };// 1ループ(フレーム)前のキーボード情報
 
-	int chatReceponFlag[20];
+	int chatReceponFlag[10];
 
 	int ChatScrollY = 0;
 
@@ -35,5 +35,6 @@ private:
 
 	int chatChoseFlage = 0;
 
+	int chatBranchFlage = 0;
 };
 

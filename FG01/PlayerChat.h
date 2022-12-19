@@ -71,6 +71,8 @@ private:
 
 	int chatChoseFlage = 0;
 
+	int chatBranchFlage = 0;
+
 	int HpAnime = 0;
 	
 };

@@ -113,6 +113,7 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 				ChatLike();
 		}
 		
+
 	}
 
 	if (chatSendCount == 1) {
@@ -174,7 +175,6 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 		
 		chatAnser = 4;
 		
-
 		if (chatchose == chatAnser) {
 			count = 1;
 
@@ -215,7 +215,6 @@ void PlayerChat::Draw(){
 			DrawGraph(playerPosX[1], playerPosY[1] + ChatScrollY, chatSendGraph, TRUE);
 			
 			DrawFormatString(playerPosX[1] + 50, playerPosY[1] + 50 + ChatScrollY, GetColor(0, 0, 0), "はやくこい!");
-			
 		}
 
 		if (chatSendFlag[2] == TRUE) {
@@ -234,19 +233,18 @@ void PlayerChat::Draw(){
 			DrawGraph(playerPosX[4], playerPosY[4] + ChatScrollY, chatSendGraph, TRUE);
 			
 			DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "絶対だめ!");
-			
-			
 		}
 
 		if (chatSendFlag[5] == TRUE) {
 			DrawGraph(playerPosX[5], playerPosY[5] + ChatScrollY, chatSendGraph, TRUE);
-			DrawFormatString(playerPosX[5] + 50, playerPosY[5] + 50 + ChatScrollY, GetColor(0, 0, 0), "にんじんとカレー粉");
 			
+			DrawFormatString(playerPosX[5] + 50, playerPosY[5] + 50 + ChatScrollY, GetColor(0, 0, 0), "にんじんとカレー粉");
 		}
 
 		if (chatSendFlag[6] == TRUE) {
 			DrawGraph(playerPosX[6], playerPosY[6] + ChatScrollY, chatSendGraph, TRUE);
-				DrawFormatString(playerPosX[6] + 50, playerPosY[6] + 50 + ChatScrollY, GetColor(0, 0, 0), "はーい！");
+			
+			DrawFormatString(playerPosX[6] + 50, playerPosY[6] + 50 + ChatScrollY, GetColor(0, 0, 0), "はーい！");
 		}
 
 		if (chatSendFlag[7] == TRUE) {
