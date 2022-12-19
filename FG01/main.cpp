@@ -256,9 +256,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			enemychat4_->Draw();
 
 			DrawGraph(0, 0, backGraph, TRUE);
-
 		}
-
 
 		if (Level1 <= sceneState) {
 			DrawGraph(18, 69, textGraph, TRUE);

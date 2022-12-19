@@ -52,6 +52,10 @@ void PlayerChat4::Initialize() {
 
 	Timer = 30;
 
+	chatBranchFlage = 0;
+
+	chatBranchNumber = 0;
+
 	for (int i = 0; i < 10; i++) {
 		chatSendFlag[i] = FALSE;
 	}
@@ -264,7 +268,6 @@ void PlayerChat4::Draw() {
 		DrawFormatString(playerPosX[5] + 50, playerPosY[5] + 50 + ChatScrollY, GetColor(0, 0, 0), "‚¶‚á[‚Ü‚½–¾“ú‚Ë[");
 
 	}
-
 
 	if (chatChoseFlage == 0) {
 		DrawFormatString(68, 650, GetColor(0, 0, 0), "‚²‚ß‚ñA‚à‚¤‚¿‚å‚¢");

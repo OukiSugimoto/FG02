@@ -75,4 +75,5 @@ private:
 
 	int HpAnime = 0;
 	
+	int chatBranchNumber = 0;
 };

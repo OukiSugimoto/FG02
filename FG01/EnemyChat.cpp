@@ -29,6 +29,10 @@ void EnemyChat::Initialize() {
 
     chatChoseFlage = 0;
 
+    chatBranchFlage = 0;
+
+    chatBranchNumber = 0;
+
     for (int i = 1; i < 10; i++) {
         chatReceponFlag[i] = FALSE;
     }

@@ -30,33 +30,33 @@ void Level::Update(char* keys, char* oldkeys) {
 }
 
 void Level::Draw() {
-	DrawFormatString(200, 370, GetColor(0, 0, 0), "‘I‚ñ‚¾‚çSPACE");
+	DrawFormatString(220, 700, GetColor(0, 0, 0), "‘I‚ñ‚¾‚çSPACE");
 
 	if (levelNumber == 4) {
-		DrawFormatString(60, 650, GetColor(255, 0, 0), "Q–V‚µ‚½—F‚Ö");
+		DrawFormatString(70, 280, GetColor(255, 0, 0), "Q–V‚µ‚½—F‚Ö");
 	}
 	else{
-		DrawFormatString(60, 650, GetColor(0, 0, 0), "Q–V‚µ‚½—F‚Ö");
+		DrawFormatString(70, 280, GetColor(0, 0, 0), "Q–V‚µ‚½—F‚Ö");
 	}
 
 	if (levelNumber == 5) {
-		DrawFormatString(340, 650, GetColor(255, 0, 0), "‚¨‚Â‚©‚¢");
+		DrawFormatString(350, 280, GetColor(255, 0, 0), "‚¨‚Â‚©‚¢");
 	}
 	else {
-		DrawFormatString(340, 650, GetColor(0, 0, 0), "‚¨‚Â‚©‚¢");
+		DrawFormatString(350, 280, GetColor(0, 0, 0), "‚¨‚Â‚©‚¢");
 	}
 	
 	if (levelNumber == 6) {
-		DrawFormatString(60, 750, GetColor(255, 0, 0), "ƒf[ƒg‚Ì—U‚¢");
+		DrawFormatString(70, 380, GetColor(255, 0, 0), "ƒf[ƒg‚Ì—U‚¢");
 	}
 	else {
-		DrawFormatString(60, 750, GetColor(0, 0, 0), "ƒf[ƒg‚Ì—U‚¢");
+		DrawFormatString(70, 380, GetColor(0, 0, 0), "ƒf[ƒg‚Ì—U‚¢");
 	}
 
 	if (levelNumber == 7) {
-		DrawFormatString(340,750, GetColor(255, 0, 0), "‘Ò‚¿‡‚í‚¹");
+		DrawFormatString(350,380, GetColor(255, 0, 0), "‘Ò‚¿‡‚í‚¹");
 	}
 	else {
-		DrawFormatString(340, 750, GetColor(0, 0, 0), "‘Ò‚¿‡‚í‚¹");
+		DrawFormatString(350, 380, GetColor(0, 0, 0), "‘Ò‚¿‡‚í‚¹");
 	}
 }

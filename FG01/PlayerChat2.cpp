@@ -53,10 +53,13 @@ void PlayerChat2::Initialize() {
 
 	Timer = 30;
 
+	chatBranchFlage = 0;
+
+	chatBranchNumber = 0;
+
 	for (int i = 0; i < 10; i++) {
 		chatSendFlag[i] = FALSE;
 	}
-
 }
 
 void PlayerChat2::ChatLike() {
