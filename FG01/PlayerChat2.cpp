@@ -306,18 +306,6 @@ void PlayerChat2::Draw() {
 		DrawFormatString(playerPosX[6] + 50, playerPosY[6] + 50 + ChatScrollY, GetColor(0, 0, 0), "ÇÕÅ[Ç¢ÅI");
 	}
 
-	if (chatSendFlag[7] == TRUE) {
-		DrawGraph(playerPosX[7], playerPosY[7] + ChatScrollY, chatSendGraph, TRUE);
-	}
-
-	if (chatSendFlag[8] == TRUE) {
-		DrawGraph(playerPosX[8], playerPosY[8] + ChatScrollY, chatSendGraph, TRUE);
-	}
-
-	if (chatSendFlag[9] == TRUE) {
-		DrawGraph(playerPosX[9], playerPosY[9] + ChatScrollY, chatSendGraph, TRUE);
-	}
-
 	if (chatChoseFlage == 0) {
 		DrawFormatString(68, 650, GetColor(0, 0, 0), "Ç‚Çæ");
 		DrawFormatString(350, 650, GetColor(0, 0, 0), "Ç»Ç…ÅH");

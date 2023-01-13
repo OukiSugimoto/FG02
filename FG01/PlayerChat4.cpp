@@ -150,7 +150,6 @@ void PlayerChat4::Update(char* keys, char* oldkeys) {
 			ChatLike();
 		}
 
-
 	}
 
 	if (chatSendCount == 3) {
@@ -211,11 +210,9 @@ void PlayerChat4::Update(char* keys, char* oldkeys) {
 			chatFalse = 2;
 		}
 
-
 		if (chatchose == 4 || chatchose == 3 || chatchose == 1) {
 			ChatLike();
 		}
-
 
 	}
 }

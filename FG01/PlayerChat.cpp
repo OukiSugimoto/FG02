@@ -1,6 +1,5 @@
 #include "PlayerChat.h"
 
-
 void PlayerChat::Initialize() {
 	playerPosX[0] = 320;       playerPosX[1] = 320;
 	playerPosY[0] = 140;       playerPosY[1] = 240;
@@ -61,18 +60,17 @@ void PlayerChat::Initialize() {
 	for (int i = 0; i < 10; i++) {
 		chatSendFlag[i] = FALSE;
 	}
-
 }
 
 void PlayerChat::ChatLike() {
 	chatchose = 0;
 
 	ChatLikePoint -= 20;
+
 	if (CheckSoundMem(chatFalseSe) == 0) {
 		PlaySoundMem(chatFalseSe, DX_PLAYTYPE_BACK, TRUE);
 	}
 	
-
 	if (ChatLikePoint ==  0){
 		chatFalse = 1;
 	}
@@ -117,11 +115,9 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 				ChatLike();
 		}
 		
-
 	}
 
 	if (chatSendCount == 1) {
-
 		chatAnser = 3;
 		
 		if (chatchose == chatAnser) {
@@ -135,13 +131,11 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
 			ChatLike();
 		}
-		
 	}
 	
 	if (chatSendCount == 2) {
 		chatAnser = 2;
 		
-
 		if (chatchose == chatAnser) {
 			count = 1;
 			chatSendFlag[2] = TRUE;
@@ -153,7 +147,6 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 		if (chatchose == 1 || chatchose == 3 || chatchose == 4) {
 			ChatLike();
 		}
-		
 	}
 
 	if (chatSendCount == 3) {
@@ -172,11 +165,9 @@ void PlayerChat::Update(char* keys , char* oldkeys) {
 		if (chatchose == 2 || chatchose == 1 || chatchose == 4) {
 			ChatLike();
 		}
-
 	}
 
 	if (chatSendCount == 4) {
-		
 		chatAnser = 4;
 		
 		if (chatchose == chatAnser) {
@@ -237,30 +228,6 @@ void PlayerChat::Draw(){
 			DrawGraph(playerPosX[4], playerPosY[4] + ChatScrollY, chatSendGraph, TRUE);
 			
 			DrawFormatString(playerPosX[4] + 50, playerPosY[4] + 50 + ChatScrollY, GetColor(0, 0, 0), "絶対だめ!");
-		}
-
-		if (chatSendFlag[5] == TRUE) {
-			DrawGraph(playerPosX[5], playerPosY[5] + ChatScrollY, chatSendGraph, TRUE);
-			
-			DrawFormatString(playerPosX[5] + 50, playerPosY[5] + 50 + ChatScrollY, GetColor(0, 0, 0), "にんじんとカレー粉");
-		}
-
-		if (chatSendFlag[6] == TRUE) {
-			DrawGraph(playerPosX[6], playerPosY[6] + ChatScrollY, chatSendGraph, TRUE);
-			
-			DrawFormatString(playerPosX[6] + 50, playerPosY[6] + 50 + ChatScrollY, GetColor(0, 0, 0), "はーい！");
-		}
-
-		if (chatSendFlag[7] == TRUE) {
-			DrawGraph(playerPosX[7], playerPosY[7] + ChatScrollY, chatSendGraph, TRUE);
-		}
-
-		if (chatSendFlag[8] == TRUE) {
-			DrawGraph(playerPosX[8], playerPosY[8] + ChatScrollY, chatSendGraph, TRUE);
-		}
-
-		if (chatSendFlag[9] == TRUE) {
-			DrawGraph(playerPosX[9], playerPosY[9] + ChatScrollY, chatSendGraph, TRUE);
 		}
 
 		if (chatChoseFlage == 0) {

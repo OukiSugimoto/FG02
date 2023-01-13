@@ -51,6 +51,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	int clearGraph = LoadGraph("Resource\\clear.png");
 	int ruruGraph = LoadGraph("Resource\\ru-ru.png");
 	int kikenGraph = LoadGraph("Resource\\kiken.png");
+	int hibiGraph = LoadGraph("Resource\\hibi1.png");
+	int hibi2Graph = LoadGraph("Resource\\hibi2.png");
+	int hibi3Graph = LoadGraph("Resource\\hibi3.png");
+	int hibi4Graph = LoadGraph("Resource\\hibi4.png");
 
 	int gameBGM = LoadSoundMem("Resource\\BGM.mp3");
 	int kikenBGM = LoadSoundMem("Resource\\keihou.mp3");
@@ -66,13 +70,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	PlayerChat3* playerchat3_ = new PlayerChat3;
 	PlayerChat4* playerchat4_ = new PlayerChat4;
 	
-
 	EnemyChat* enemychat_ = new EnemyChat;
 	EnemyChat2* enemychat2_ = new EnemyChat2;
 	EnemyChat3* enemychat3_ = new EnemyChat3;
 	EnemyChat4* enemychat4_ = new EnemyChat4;
 	
-
 	//タイマー
 	int alpha = 20;
 
@@ -138,7 +140,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			level_->Update(keys, oldkeys);
 
 			level_->Draw();
-
+			
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
 				sceneState = level_->levelNumber;
 			}
@@ -205,7 +207,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 				PlaySoundMem(clearBGM, DX_PLAYTYPE_BACK, TRUE);
 			}
 			
-
 			DrawGraph(0, 0, clearGraph, TRUE);
 			if (keys[KEY_INPUT_SPACE] == TRUE && oldkeys[KEY_INPUT_SPACE] == FALSE) {
 				sceneState = Title;
@@ -323,6 +324,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat_->playerHpPosX[2], playerchat_->playerHpPosY[2], playerchat_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat_->playerHpPosX[3], playerchat_->playerHpPosY[3], playerchat_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat_->playerHpPosX[4], playerchat_->playerHpPosY[4], playerchat_->Animes[playerchat_->index], TRUE);
+
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibiGraph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
 			if (sceneState == Level2) {
@@ -348,6 +354,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat2_->playerHpPosX[2], playerchat2_->playerHpPosY[2], playerchat2_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat2_->playerHpPosX[3], playerchat2_->playerHpPosY[3], playerchat2_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat2_->playerHpPosX[4], playerchat2_->playerHpPosY[4], playerchat2_->Animes[playerchat2_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibiGraph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
 			if (sceneState == Level3) {
@@ -373,6 +383,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat3_->playerHpPosX[2], playerchat3_->playerHpPosY[2], playerchat3_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat3_->playerHpPosX[3], playerchat3_->playerHpPosY[3], playerchat3_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat3_->playerHpPosX[4], playerchat3_->playerHpPosY[4], playerchat3_->Animes[playerchat3_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibiGraph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
 			if (sceneState == Level4) {
@@ -398,6 +412,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat4_->playerHpPosX[2], playerchat4_->playerHpPosY[2], playerchat4_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat4_->playerHpPosX[3], playerchat4_->playerHpPosY[3], playerchat4_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat4_->playerHpPosX[4], playerchat4_->playerHpPosY[4], playerchat4_->Animes[playerchat4_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibiGraph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
 			
@@ -423,6 +441,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat_->playerHpPosX[1], playerchat_->playerHpPosY[1], playerchat_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat_->playerHpPosX[2], playerchat_->playerHpPosY[2], playerchat_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat_->playerHpPosX[3], playerchat_->playerHpPosY[3], playerchat_->Animes[playerchat_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 0, hibi2Graph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
 			if (sceneState == Level2) {
@@ -447,6 +469,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat2_->playerHpPosX[1], playerchat2_->playerHpPosY[1], playerchat2_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat2_->playerHpPosX[2], playerchat2_->playerHpPosY[2], playerchat2_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat2_->playerHpPosX[3], playerchat2_->playerHpPosY[3], playerchat2_->Animes[playerchat2_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibi2Graph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
 			if (sceneState == Level3) {
@@ -471,6 +497,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat3_->playerHpPosX[1], playerchat3_->playerHpPosY[1], playerchat3_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat3_->playerHpPosX[2], playerchat3_->playerHpPosY[2], playerchat3_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat3_->playerHpPosX[3], playerchat3_->playerHpPosY[3], playerchat3_->Animes[playerchat3_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 0, hibi2Graph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
 			if (sceneState == Level4) {
@@ -495,6 +525,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat4_->playerHpPosX[1], playerchat4_->playerHpPosY[1], playerchat4_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat4_->playerHpPosX[2], playerchat4_->playerHpPosY[2], playerchat4_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat4_->playerHpPosX[3], playerchat4_->playerHpPosY[3], playerchat4_->Animes[playerchat4_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibi2Graph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
 			
@@ -519,6 +553,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat_->playerHpPosX[0], playerchat_->playerHpPosY[0], playerchat_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat_->playerHpPosX[1], playerchat_->playerHpPosY[1], playerchat_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat_->playerHpPosX[2], playerchat_->playerHpPosY[2], playerchat_->Animes[playerchat_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibi3Graph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
 			if (sceneState == Level2) {
@@ -542,6 +580,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat2_->playerHpPosX[0], playerchat2_->playerHpPosY[0], playerchat2_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat2_->playerHpPosX[1], playerchat2_->playerHpPosY[1], playerchat2_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat2_->playerHpPosX[2], playerchat2_->playerHpPosY[2], playerchat2_->Animes[playerchat2_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibi3Graph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
 			if (sceneState == Level3) {
@@ -565,6 +607,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat3_->playerHpPosX[0], playerchat3_->playerHpPosY[0], playerchat3_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat3_->playerHpPosX[1], playerchat3_->playerHpPosY[1], playerchat3_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat3_->playerHpPosX[2], playerchat3_->playerHpPosY[2], playerchat3_->Animes[playerchat3_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibi3Graph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
 			if (sceneState == Level4) {
@@ -588,6 +634,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat4_->playerHpPosX[0], playerchat4_->playerHpPosY[0], playerchat4_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat4_->playerHpPosX[1], playerchat4_->playerHpPosY[1], playerchat4_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat4_->playerHpPosX[2], playerchat4_->playerHpPosY[2], playerchat4_->Animes[playerchat4_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibi3Graph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 				}
 			}
 			
@@ -611,6 +661,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat_->playerHpPosX[0] + playerchat_->shakeChat, playerchat_->playerHpPosY[0], playerchat_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat_->playerHpPosX[1], playerchat_->playerHpPosY[1], playerchat_->Animes[playerchat_->index], TRUE);
 
+					
 					alpha += 2;
 
 					if (alpha >= 120) {
@@ -623,6 +674,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
 					DrawGraph(18, 69, textGraph, TRUE);
 					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 180);
+					DrawGraph(30, 70, hibi4Graph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	
 
 					SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha);
 					DrawGraph(18, 69, kikenGraph, TRUE);
@@ -648,6 +704,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 					DrawGraph(playerchat2_->playerHpPosX[0] + playerchat2_->shakeChat, playerchat2_->playerHpPosY[0], playerchat2_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat2_->playerHpPosX[1], playerchat2_->playerHpPosY[1], playerchat2_->Animes[playerchat2_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibi4Graph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
 					alpha += 2;
 
@@ -687,6 +747,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 					DrawGraph(playerchat3_->playerHpPosX[0] + playerchat3_->shakeChat, playerchat3_->playerHpPosY[0], playerchat3_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat3_->playerHpPosX[1], playerchat3_->playerHpPosY[1], playerchat3_->Animes[playerchat3_->index], TRUE);
 
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibi4Graph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+
 					alpha += 2;
 
 					if (alpha >= 120) {
@@ -724,6 +788,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 					DrawGraph(playerchat4_->playerHpPosX[0] + playerchat4_->shakeChat, playerchat4_->playerHpPosY[0], playerchat4_->PlayerLifeGraph, TRUE);
 					DrawGraph(playerchat4_->playerHpPosX[1], playerchat4_->playerHpPosY[1], playerchat4_->Animes[playerchat4_->index], TRUE);
+
+					SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+					DrawGraph(30, 70, hibi4Graph, TRUE);
+					SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
 					alpha += 2;
 
@@ -777,7 +845,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			if (sceneState == Level4) {
 				DrawFormatString(390, 80, GetColor(0, 0, 0), "連絡相手:恋人");
 			}
-			
 			
 		}
 		//---------  ここまでにプログラムを記述  ---------//
